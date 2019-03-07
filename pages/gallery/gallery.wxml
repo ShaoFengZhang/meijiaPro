@@ -1,0 +1,27 @@
+<view class="bg">
+
+    <view class='scrollView' style='width:100%;height:100vh'>
+
+        <scroll-view lower-threshold="20" bindscrolltolower="bindscrolltolower" id='botScroll' scroll-y style="height:100vh">
+
+            <view class='tempBox' id="scroll1">
+
+                <!-- <view bindtap='checkImage' wx:for="{{imgArr}}" wx:key="index" class='picItem' data-urlSrc='{{srcUrl}}{{item.imgurl}}'>
+                    <image src='{{srcUrl}}{{item.imgurl}}' style='width:340rpx' mode='widthFix' />
+                </view> -->
+
+                <block wx:for="{{dataArray}}" wx:for-item="articles" wx:for-index="dataArrayIndex" wx:key="index">
+                    <block wx:for="{{articles}}" wx:for-item="item" wx:key="{{item.id}}" wx:for-index="index">
+                        <view  bindtap='checkImage' class='picItem' data-urlSrc='{{srcUrl}}{{item.imgurl}}'>
+                            <image src='{{srcUrl}}{{item.imgurl}}' style='width:340rpx' mode='widthFix' />
+                        </view>
+                    </block>
+                </block>
+
+            </view>
+
+        </scroll-view>
+
+    </view>
+
+</view>

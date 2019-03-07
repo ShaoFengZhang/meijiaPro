@@ -1,0 +1,28 @@
+<view class="bg">
+    <view class='posterTemp' style="height:100vh">
+
+        <scroll-view bindscrolltolower="bindscrolltolower" id='posterScroll' scroll-y style="height: 100vh">
+
+            <view class='posterBox'>
+
+                <view bindtap='posterClick' class='posterList' data-src="{{domin}}{{item.imgurl}}" wx:for="{{posterArr}}" data-id="{{item.id}}"wx:key="index">
+
+                    <view class='posterIcon'>
+                        <image src='{{domin}}{{item.imgurl}}' />
+                    </view>
+
+                    <view class='posterName'>
+                        <text>{{item.title}}</text>
+                    </view>
+
+                </view>
+
+            </view>
+
+
+
+
+        </scroll-view>
+
+    </view>
+</view>

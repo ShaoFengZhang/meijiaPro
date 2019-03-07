@@ -1,0 +1,40 @@
+.bg, .posterTemp, #posterScroll, .posterBox {
+    background-color: #f6f6f8;
+}
+
+.posterTemp {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0rpx 24rpx;
+}
+
+.posterBox {
+    width: 100%;
+    padding-top: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.posterList {
+    width: 340rpx;
+    margin-bottom: 40rpx;
+}
+
+.posterIcon image {
+    width: 340rpx;
+    height: 540rpx;
+    box-shadow: 0px 6rpx 12rpx 0px rgba(229, 229, 229, 1);
+}
+
+.posterName {
+    font-size: 32rpx;
+    color: #3b3b3b;
+    letter-spacing: 0;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 14rpx;
+    font-weight: bold;
+}

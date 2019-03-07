@@ -1,0 +1,37 @@
+<view class="bg">
+
+    <view class='topPromt'>
+        <text>用户（{{10}}人）</text>
+        <text>最后查看时间/查看来源</text>
+    </view>
+
+    <view class='publicityTemp' style="height: {{classScrollHeight}}rpx;">
+
+        <scroll-view id='botScroll' scroll-y style="height: {{classScrollHeight}}rpx;">
+
+            <view class='userList'>
+
+                <view class='userIcon'>
+                    <image src='/assets/picture/banner2.png' />
+                </view>
+
+                <view class='userName'>
+                    <text>我来试试hahhaahahahhahahhahahahh</text>
+                </view>
+
+                <view class='checkDetails'>
+
+                    <view>02 - 24 12 : 00 : 00</view>
+                    <view>点击转发链接查看</view>
+                
+                </view>
+
+                <view class='line'></view>
+
+            </view>
+
+        </scroll-view>
+
+    </view>
+
+</view>

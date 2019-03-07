@@ -1,0 +1,61 @@
+<view class="bg">
+
+    <view class='topUserView'>
+
+        <view class='userInfo userViewItem' hover-class='hover-class' bindtap='goToMyBrand'>
+            <view class="userIcon">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+
+            <view class="userName">
+                <open-data type="userNickName"></open-data>
+            </view>
+
+            <!-- <view class='rightFlow'>
+                <image src='/assets/picture/lightFlow.png' />
+            </view> -->
+        </view>
+
+        <view class='myPosterTxt userViewItem'>
+            <text>我的海报</text>
+        </view>
+
+    </view>
+
+    <view class='myTemp' style="height: {{ScrollHeight}}rpx">
+
+        <scroll-view bindscrolltolower="bindscrolltolower" id='myTempScroll' scroll-y style="height: {{ScrollHeight}}rpx">
+
+            <view class='myTempBox' wx:if="{{myPosterArr.length}}">
+
+                <view bindtap='tempClick' data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" wx:for="{{myPosterArr}}" wx:key="index">
+
+                    <view class='myTempIcon'>
+                        <image src='{{srcDomin}}{{item.newimg}}' />
+                    </view>
+
+                    <view class='myTempDes'>
+
+                        <view class='myTempDetail'>
+                            <text style='font-size:28rpx;'>查看人数：0</text>
+                            <text style='font-size:20rpx;'>产品宣传</text>
+                        </view>
+
+                        <view class='point'> ... </view>
+                        <view class='pointMask'></view>
+                    </view>
+
+                </view>
+                
+            </view>
+
+            <view class='noMyTempList' wx:if="{{!myPosterArr.length && ifShowView}}">
+                <text>您暂时还没有数据哦~</text>
+            </view>
+
+
+        </scroll-view>
+
+    </view>
+
+</view>

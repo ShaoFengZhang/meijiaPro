@@ -1,0 +1,90 @@
+<view class="bg">
+
+    <view class='editorArea'>
+        <view style='box-shadow: 0px 6rpx 12rpx 0px rgba(229, 229, 229, 1);'>
+            <view class='topImage'>
+                <image src='{{nowTempSrc}}' />
+            </view>
+
+            <view class='editorQr' bindtap='popUpWin'>
+                <text>选择二维码</text>
+            </view>
+        </view>
+
+
+        <view class='saveBtn' bindtap='savePicture'>
+            <text>保存图片</text>
+        </view>
+
+    </view>
+
+    <view class='popUpWinBox' wx:if="{{showPicOptions}}">
+        <view class='popUpWin'>
+
+            <!-- <view class='popWinView customView'>
+                <text>上传自定义图片</text>
+            </view> -->
+
+            <view class='popWinView' bindtap='usePosterQr'>
+                <text>使用海报分享码</text>
+            </view>
+
+            <view class='popWinView popQr' bindtap='upLoadImage'>
+                <text>上传二维码</text>
+            </view>
+
+            <view class='popWinView' bindtap='popUpWin'>
+                <text>取消</text>
+            </view>
+
+        </view>
+    </view>
+
+    <view class='changePicBox' wx:if="{{showPopUpQrView}}">
+
+        <view class='changePic'>
+
+            <view class='myPicCarTxt'>
+                <view style="font-size:32rpx;color:#1C1C1C;font-weight:bold">我的图库</view>
+                <view style="font-size:48rpx;color:#4A4A4A">X</view>
+                <view class='closeChangePicBox' bindtap='popUpQr'></view>
+            </view>
+
+            <view class='lineBox'>
+                <view class='slectLine'></view>
+                <!-- <view class='slectLine'></view> -->
+            </view>
+
+            <view class='myTemp' style="height:940rpx">
+
+                <scroll-view id='myTempScroll' scroll-y style="height: 940rpx">
+
+                    <view class='myTempBox'>
+
+                        <view class='myTempList' wx:if="{{myTempArr.length}}" wx:for="{{myTempArr}}" wx:key="index">
+
+                            <view class='myTempIcon'>
+                                <image src='/assets/picture/banner2.png' />
+                            </view>
+
+                        </view>
+
+                        <view class='noMyTempList' wx:if="{{!myTempArr.length}}">
+                            <text>您暂时还没有数据哦~</text>
+                        </view>
+
+                    </view>
+
+                </scroll-view>
+
+            </view>
+
+            <view class='changePicBtn' bindtap='upLoadImage'>
+                <text>从手机相册上传</text>
+            </view>
+
+        </view>
+
+    </view>
+
+</view>

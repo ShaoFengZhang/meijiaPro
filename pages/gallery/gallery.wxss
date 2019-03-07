@@ -1,0 +1,17 @@
+.bg {
+    background: #f6f6f8;
+    overflow: hidden;
+}
+
+.tempBox {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24rpx;
+    column-count: 2;
+    column-gap: 20rpx;
+}
+
+.picItem {
+    width: 340rpx;
+    break-inside: avoid;
+}

@@ -1,0 +1,165 @@
+.bg {
+    background-color: #f6f6f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.editorArea {
+    width: 560rpx;
+    height: 1136rpx;
+}
+
+.topImage, .topImage image {
+    width: 560rpx;
+    height: 920rpx;
+}
+
+.editorQr {
+    width: 560rpx;
+    height: 80rpx;
+    background-color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+    color: #1c1c1c;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.saveBtn {
+    width: 560rpx;
+    height: 96rpx;
+    background: #f57;
+    box-shadow: 0 12rpx 24rpx 0 rgba(255, 85, 119, 0.24);
+    border-radius: 100rpx;
+    text-align: center;
+    line-height: 96rpx;
+    color: #fff;
+    margin-top: 40rpx;
+}
+
+.popUpWinBox, .changePicBox {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: rgba(28, 28, 28, 0.7);
+}
+
+.popUpWin {
+    width: 100%;
+    height: 324rpx;
+    /* height: 436rpx; */
+    position: absolute;
+    bottom: 0;
+    background-color: #f6f6f8;
+}
+
+.popWinView {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #fff;
+    font-size: 34rpx;
+    color: #000;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.popQr {
+    margin: 12rpx 0;
+}
+
+/* .customView{
+    margin-bottom: 12rpx;
+} */
+
+/*选择二维码view */
+
+.changePic {
+    width: 756rpx;
+    height: 1178rpx;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 0 28rpx;
+}
+
+.myPicCarTxt {
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeChangePicBox {
+    position: absolute;
+    right: 0;
+    width: 100rpx;
+    height: 88rpx;
+}
+
+.lineBox {
+    width: 100%;
+    height: 4rpx;
+    background-color: #dfdfdf;
+    display: flex;
+    justify-content: start;
+}
+
+.slectLine {
+    width: 128rpx;
+    height: 4rpx;
+    background: #f57;
+    margin-right: 30rpx;
+}
+
+/* scrollView */
+
+.myTemp {
+    width: 100%;
+}
+
+.myTempBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.noMyTempList{
+    width: 100%;
+    text-align: center;
+    color: #888888;
+    font-size: 28rpx;
+}
+
+#myTempScroll {
+    box-sizing: border-box;
+    padding-top: 24rpx;
+}
+
+.myTempList {
+    margin-bottom: 24rpx;
+}
+
+.myTempIcon, .myTempIcon image {
+    width: 340rpx;
+    height: 560rpx;
+}
+
+.changePicBtn {
+    width: 100%;
+    height: 98rpx;
+    background: #f57;
+    box-shadow: 0 12rpx 24rpx 0 rgba(255, 85, 119, 0.24);
+    border-radius: 64rpx;
+    line-height: 98rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 40rpx;
+    margin-top: 24rpx;
+}

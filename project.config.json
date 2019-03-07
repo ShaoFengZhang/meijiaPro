@@ -1,0 +1,107 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.1",
+	"appid": "wx85eda00af5df13ed",
+	"projectname": "ceshi1",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 8,
+			"list": [
+				{
+					"id": 0,
+					"name": "海报制作",
+					"pathName": "pages/posterTemp/posterTemp",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "编辑模板",
+					"pathName": "pages/editorTemp/editorTemp",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/userCenter/userCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "品牌",
+					"pathName": "pages/myBrand/myBrand",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的二维码",
+					"pathName": "pages/myQr/myQr",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的海报",
+					"pathName": "pages/myPoster/myPoster",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户查看",
+					"pathName": "pages/userCheck/userCheck",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "图库",
+					"pathName": "pages/gallery/gallery",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": " 招募",
+					"pathName": "pages/recruit/recruit",
+					"scene": null
+				}
+			]
+		}
+	}
+}

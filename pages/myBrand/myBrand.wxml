@@ -1,0 +1,24 @@
+<view class="bg">
+
+    <view class='topUserView'>
+        <view class='userInfo userViewItem'>
+            <view class="userIcon">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+
+            <view class="userName">
+                <open-data type="userNickName"></open-data>
+            </view>
+
+            <!-- <view class='rightFlow'>
+                <image src='/assets/picture/rightFlow.png' />
+            </view> -->
+        </view>
+
+        <view class='myPosterTxt userViewItem'>
+            <text class='brandIcon'>R</text>
+            <text>我的品牌</text>
+        </view>
+    </view>
+
+</view>

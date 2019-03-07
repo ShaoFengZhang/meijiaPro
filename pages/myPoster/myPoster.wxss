@@ -1,0 +1,66 @@
+.bg {
+    background-color: #f6f6f8;
+}
+
+.posterBigView {
+    margin-top: 20rpx;
+}
+
+.posterImg {
+    margin: 0 auto;
+}
+
+.userCheck {
+    width: 288rpx;
+    height: 64rpx;
+    background: #fff;
+    border-radius: 62px;
+    margin: 30rpx auto 0;
+    font-size: 28rpx;
+    color: #000;
+    letter-spacing: -0.68rpx;
+    text-align: center;
+    line-height: 64rpx;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.userCheck image {
+    width: 12rpx;
+    height: 24rpx;
+    margin-left: 30rpx;
+    position: relative;
+    top: 2rpx;
+}
+
+.editorBox {
+    width: 100%;
+    /* height: 120rpx; */
+    margin-top: 40rpx;
+    box-sizing: border-box;
+    padding: 0 206rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #000;
+    letter-spacing: -0.68rpx;
+    text-align: center;
+}
+
+.editorBox image {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.shareBtn{
+    position: relative;
+}
+
+#shareButton{
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}

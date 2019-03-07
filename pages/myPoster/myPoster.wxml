@@ -1,0 +1,32 @@
+<view class="bg">
+
+    <view class='posterBigView'>
+
+        <view class='posterImg' style='width:{{imgW}}rpx'>
+            <image style='width:{{imgW}}rpx' mode='widthFix' src='{{imgSrc}}' />
+        </view>
+
+        <view class='userCheck' bindtap='howPeopleCheck'>
+            <text>{{0}}人查看过海报</text>
+            <image src='/assets/picture/rightFlow.png' />
+        </view>
+
+        <view class='editorBox'>
+
+            <view class='shareBtn'>
+                <image src='/assets/picture/shareBtn.png' />
+                <view>发给朋友</view>
+                <button id='shareButton' open-type='share'></button>
+            </view>
+
+            <view class='downBtn' bindtap='savePicture'>
+                <image src='/assets/picture/down.png' />
+                <view>下载到相册</view>
+            </view>
+
+        </view>
+
+
+    </view>
+
+</view>

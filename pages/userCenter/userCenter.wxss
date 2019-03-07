@@ -1,0 +1,157 @@
+.bg {
+    background-color: #f6f6f8;
+}
+
+.topUserView {
+    width: 100%;
+    height: 262rpx;
+    background-color: #fff;
+}
+
+.userViewItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+}
+
+.userInfo {
+    width: 100%;
+    height: 176rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #f6f6f8;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+}
+
+.userIcon {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 24rpx;
+}
+
+.userName {
+    width: 500rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: -0.96rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 14rpx;
+}
+
+.rightFlow {
+    width: 50rpx;
+    height: 42rpx;
+    position: absolute;
+    right: 40rpx;
+}
+
+.rightFlow image {
+    width: 24rpx;
+    height: 42rpx;
+    position: absolute;
+    right: 0;
+}
+
+.myPosterTxt {
+    height: 86rpx;
+    line-height: 86rpx;
+    font-size: 36rpx;
+    color: #333;
+    letter-spacing: -0.96rpx;
+    font-weight: bold;
+}
+
+/* scrollView */
+
+.myTemp {
+    width: 100%;
+}
+
+.myTempBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.noMyTempList{
+    width: 100%;
+    text-align: center;
+    color: #888888;
+    font-size: 28rpx;
+}
+
+#myTempScroll {
+    box-sizing: border-box;
+    padding:40rpx 24rpx 10rpx;
+}
+
+.myTempList {
+    margin-bottom: 24rpx;
+}
+
+.myTempIcon, .myTempIcon image {
+    width: 340rpx;
+    height: 560rpx;
+}
+
+.myTempDes {
+    width: 100%;
+    height: 88rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+}
+
+.myTempDetail {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8rpx 24rpx;
+    color: #333;
+    letter-spacing: -0.64px;
+    text-align: center;
+    line-height: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myTempDetail text {
+    display: inline-block;
+    line-height: 32rpx;
+}
+
+.myTempDetail text:last-child {
+    width: 96rpx;
+    height: 32rpx;
+    box-sizing: border-box;
+    border: 2rpx solid #000;
+    border-radius: 16rpx;
+}
+
+.point {
+    width: 100%;
+    font-size: 40rpx;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10rpx;
+    left: 24rpx;
+}
+
+.pointMask{
+    width: 100rpx;
+    height: 42rpx;
+    position: absolute;
+    bottom: 0;
+}
+
+.hover-class{
+    background: #F6F6F8;
+}

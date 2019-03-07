@@ -1,0 +1,38 @@
+<view class='bg'>
+
+    <scroll-view scroll-y style='width:100%;height:100vh;'>
+        <view class='imageBox'>
+            <image src='/assets/picture/recruit.png' />
+        </view>
+    </scroll-view>
+
+    <view class='connectBox'>
+        <view class="connectUs" bindtap='showMask'>
+            <text>联系我们</text>
+        </view>
+    </view>
+
+
+    <view class='connetMask' wx:if="{{ifShowMask}}" bindtap='showMask'>
+        <view class='maskBody'>
+            <view class='qrView'>
+                <view>
+                    <image src="{{weixinSrc}}" />
+                </view>
+
+                <view class='saveBtn' bindtap='savePicture'>保存</view>
+            </view>
+
+            <view class='lineVIew'></view>
+
+            <view class='tellView'>
+                <view style='font-size:32rpx;color: #0D141E;'>
+                    微信号：{{weixin}}
+                </view>
+
+                <view class='saveBtn' bindtap='copyText'>复制</view>
+            </view>
+
+        </view>
+    </view>
+</view>
