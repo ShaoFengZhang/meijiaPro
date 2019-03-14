@@ -7,7 +7,7 @@
         </view>
 
         <view class='userCheck' bindtap='howPeopleCheck'>
-            <text>{{0}}人查看过海报</text>
+            <text>{{imgNum}} 人查看过海报</text>
             <image src='/assets/picture/rightFlow.png' />
         </view>
 

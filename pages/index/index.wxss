@@ -49,6 +49,7 @@
 .tempList {
     width: 340rpx;
     margin-bottom: 24rpx;
+    position: relative;
 }
 
 .tempIcon image {
@@ -69,4 +70,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-top: 14rpx;
+}
+
+#indexGetUserInfoBtn{
+    width: 100%;
+    height:240rpx; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }

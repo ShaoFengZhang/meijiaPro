@@ -26,12 +26,12 @@
                         <image src='{{item.icon}}' />
                     </view>
 
+                    <!-- <button data-title="{{item.name}}" data-type="{{item.type}}" catchtap='catchtap' id='indexGetUserInfoBtn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">
+                    </button> -->
+
                 </view>
 
             </view>
-
-
-
 
         </scroll-view>
 

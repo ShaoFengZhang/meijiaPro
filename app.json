@@ -11,14 +11,12 @@
         "pages/userCheck/userCheck",
         "pages/recruit/recruit"
     ],
-    
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "美甲助手Pro",
         "navigationBarTextStyle": "black"
     },
-
     "tabBar": {
         "color": "#4B4B4B",
         "selectedColor": "#FF5577",
@@ -43,18 +41,14 @@
                 "text": "我的",
                 "selectedIconPath": "/assets/barIcon/myInfoSelect.png"
             }
-
         ]
     },
-
     "navigateToMiniProgramAppIdList": [
         "wx316552261ac875d8",
         "wx32540bd863b27570",
         "wx8abaf00ee8c3202e"
     ],
-
     "networkTimeout": {
         "request": 10000
     }
-
 }

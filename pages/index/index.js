@@ -12,27 +12,27 @@ Page({
         classiy: [{
                 icon: '/assets/index/01.png',
                 name: '产品宣传海报',
-                type: 1
+                type: 1,
             },
             {
                 icon: '/assets/index/02.png',
                 name: '用户维护',
-                type: 2
+                type: 2,
             },
             {
                 icon: '/assets/index/03.png',
                 name: '朋友圈装修',
-                type: 3
+                type: 3,
             },
             {
                 icon: '/assets/index/04.png',
                 name: '早晚安问候',
-                type: 4
+                type: 4,
             },
         ]
     },
 
-    onLoad: function() {
+    onLoad: function (options) {
         // 处理用户信息
         if (app.globalData.userInfo) {
             console.log('if');
@@ -72,7 +72,20 @@ Page({
         this.setData({
             classScrollHeight: app.windowHeight * 750 / app.sysWidth - 416,
             // classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 416,
-        })
+        });
+        if (options) {
+            console.log('SCENE', options);
+            let scene = decodeURIComponent(options.scene);
+            let shareUserUid = scene.split('&')[0];
+            let posterMid = scene.split('&')[1];
+            // if (wx.getStorageSync('user_openID')) {
+            //     app.ifPerformNavToDaZhuanPan = false;
+            //     this.navToDaZhuanPan();
+            // } else {
+            //     app.ifPerformNavToDaZhuanPan = true;
+            //     app.navToDaZhuanPan = this.navToDaZhuanPan;
+            // }
+        };
     },
 
     onShow: function() {
@@ -89,6 +102,8 @@ Page({
         }
     },
 
+    catchtap:function(){},
+
     // 获取用户信息
     getUserInfo: function(e) {
         console.log(e);
@@ -102,9 +117,10 @@ Page({
             let iv = e.detail.iv;
             let encryptedData = e.detail.encryptedData;
             let session_key = app.globalData.session_key;
-            LoginFunc.checkUserInfo(app, e.detail, iv, encryptedData, session_key);
+            // LoginFunc.checkUserInfo(app, e.detail, iv, encryptedData, session_key);
+            this.tempBindTap(e)
         } else {
-            util.showToastFun('需要授权哦~');
+            util.showToastFun('我们需要您的授权哦~');
         }
     },
 

@@ -126,6 +126,7 @@ Page({
                                     nowTempSrc: LoginFunc.srcDomin + data.newimg,
                                     nowNewImg: data.newimg,
                                     oldimgSrc:data.oldimage,
+                                    newimgid: data.newimgid,
                                 })
                             } else {
                                 util.showToastFun("上传失败,重新上传")
@@ -165,6 +166,7 @@ Page({
         let data = {
             'openid': wx.getStorageSync('user_openID'),
             'mid': _this.mid,
+            "uid": wx.getStorageSync('u_id'),
         }
         LoginFunc.wxRequest(app, getPosterQrTempUrl, "POST", data, function(res) {
             if (res.status == 1) {
@@ -172,6 +174,7 @@ Page({
                     posterQrTempSrc: LoginFunc.srcDomin + res.newimg,
                     postNewImg: res.newimg,
                     oldimgSrc: res.oldimage,
+                    newimgid: res.newimgid,
                 })
             } else {
                 // _this.getPosterQrTemp();
@@ -187,13 +190,15 @@ Page({
             'openid': wx.getStorageSync('user_openID'),
             'id': _this.mid,
             "newimg": this.ifWithQr ? `${this.data.postNewImg}` : `${_this.data.nowNewImg}`,
-            "oldimage": this.data.oldimgSrc
+            "oldimage": this.data.oldimgSrc,
+            "newimgid": this.data.newimgid,
+            "uid": wx.getStorageSync('u_id'),
         }
         LoginFunc.wxRequest(app, saveImageUrl, "POST", data, function(res) {
             if (res.status == 1) {
                 _this.setData({
-                    posterQrTempSrc: LoginFunc.srcDomin + res.newimg,
-                    oldimgSrc: LoginFunc.srcDomin + data.oldimg,
+                    // posterQrTempSrc: LoginFunc.srcDomin + res.newimg,
+                    // oldimgSrc: LoginFunc.srcDomin + res.oldimg,
                 })
             } else {
                 // _this.getPosterQrTemp();

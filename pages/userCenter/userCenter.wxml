@@ -28,7 +28,7 @@
 
             <view class='myTempBox' wx:if="{{myPosterArr.length}}">
 
-                <view bindtap='tempClick' data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" wx:for="{{myPosterArr}}" wx:key="index">
+                <view bindtap='tempClick' data-num="{{item.num || 0}}" data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" wx:for="{{myPosterArr}}" wx:key="index">
 
                     <view class='myTempIcon'>
                         <image src='{{srcDomin}}{{item.newimg}}' />
@@ -37,12 +37,12 @@
                     <view class='myTempDes'>
 
                         <view class='myTempDetail'>
-                            <text style='font-size:28rpx;'>查看人数：0</text>
+                            <text style='font-size:28rpx;'>查看人数：{{item.num || 0}}</text>
                             <text style='font-size:20rpx;'>产品宣传</text>
                         </view>
 
                         <view class='point'> ... </view>
-                        <view class='pointMask'></view>
+                        <view class='pointMask' data-num="{{index}}" data-id="{{item.id}}" catchtap='delectClick'></view>
                     </view>
 
                 </view>
@@ -55,6 +55,15 @@
 
 
         </scroll-view>
+
+    </view>
+
+    <view class='popView' wx:if="{{ifShowPopView}}">
+
+        <view class='popViewBody' bindtap='hidePopView'>
+            <view class='deleteView' bindtap='popPoster'>删除</view>
+            <view class='cancelView'>取消</view>
+        </view>
 
     </view>
 

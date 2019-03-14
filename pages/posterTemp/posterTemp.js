@@ -7,6 +7,7 @@ Page({
     data: {
         posterArr: [],
         domin: LoginFunc.srcDomin,
+        ifShowView: 0,
     },
 
     onLoad: function(options) {
@@ -67,9 +68,12 @@ Page({
         }
         LoginFunc.wxRequest(app, getDataFunUrl, "GET", data, function(res) {
             // wx.hideLoading();
+            _this.setData({
+                ifShowView: 1,
+            })
             if (res.status == 1) {
                 _this.setData({
-                    posterArr: _this.data.posterArr.concat(res.images)
+                    posterArr: _this.data.posterArr.concat(res.images),
                 });
                 if ((res.images.length % _this.rows) != 0) {
                     _this.cangetData = false;

@@ -3,15 +3,32 @@
     overflow: hidden;
 }
 
-.tempBox {
+/* .tempBox {
     width: 100%;
     box-sizing: border-box;
     padding: 0 24rpx;
     column-count: 2;
-    column-gap: 20rpx;
+    column-gap: 0rpx;
 }
 
 .picItem {
     width: 340rpx;
+    box-sizing: border-box;
     break-inside: avoid;
+} */
+
+.tempBox{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx 24rpx 0;
+}
+
+.picItem {
+    width: 340rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.picItem1{
+    margin-right: 20rpx;
 }

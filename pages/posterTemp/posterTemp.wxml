@@ -5,7 +5,7 @@
 
             <view class='posterBox'>
 
-                <view bindtap='posterClick' class='posterList' data-src="{{domin}}{{item.imgurl}}" wx:for="{{posterArr}}" data-id="{{item.id}}"wx:key="index">
+                <view bindtap='posterClick' class='posterList' data-src="{{domin}}{{item.imgurl}}" wx:for="{{posterArr}}" data-id="{{item.id}}" wx:key="index">
 
                     <view class='posterIcon'>
                         <image src='{{domin}}{{item.imgurl}}' />
@@ -19,7 +19,9 @@
 
             </view>
 
-
+            <view class='noMyTempList' wx:if="{{!posterArr.length && ifShowView}}">
+                <text>模板添加中~</text>
+            </view>
 
 
         </scroll-view>

@@ -2,7 +2,7 @@ const domin = "https://dj.58100.com/home/index/"; //线上域名
 const loginURl = `${domin}dologin`;
 const checkUserUrl = `${domin}updateUser`;
 const srcDomin = "https://dj.58100.com/"
-
+let loginNum=0;
 const wxloginfnc = (app) => {
     wx.login({
         success: res => {
@@ -21,8 +21,15 @@ const wxloginfnc = (app) => {
                     if (value.data.status == 1) {
                         wx.setStorageSync('user_openID', value.data.openid);
                         app.globalData.session_key = value.data.session_key;
-                        // wx.setStorageSync('u_id', value.data.u_id);
+                        wx.setStorageSync('u_id', value.data.uid);
                         // getSettingfnc(app);
+                    }else{
+                        loginNum++;
+                        if (loginNum>=3){
+                            loginNum=0;
+                            return
+                        }
+                        wxloginfnc(app);
                     }
                 }
             });

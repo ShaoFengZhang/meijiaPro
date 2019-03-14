@@ -38,3 +38,10 @@
     margin-top: 14rpx;
     font-weight: bold;
 }
+
+.noMyTempList{
+    width: 100%;
+    text-align: center;
+    color: #888888;
+    font-size: 28rpx;
+}

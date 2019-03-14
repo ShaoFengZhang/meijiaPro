@@ -2,26 +2,44 @@
 
     <view class='scrollView' style='width:100%;height:100vh'>
 
-        <scroll-view lower-threshold="20" bindscrolltolower="bindscrolltolower" id='botScroll' scroll-y style="height:100vh">
+        <scroll-view lower-threshold="80" bindscrolltolower="bindscrolltolower" id='botScroll' scroll-y style="height:100vh">
 
-            <view class='tempBox' id="scroll1">
+            <!-- <view class='tempBox' id="scroll1"> -->
 
                 <!-- <view bindtap='checkImage' wx:for="{{imgArr}}" wx:key="index" class='picItem' data-urlSrc='{{srcUrl}}{{item.imgurl}}'>
                     <image src='{{srcUrl}}{{item.imgurl}}' style='width:340rpx' mode='widthFix' />
                 </view> -->
 
-                <block wx:for="{{dataArray}}" wx:for-item="articles" wx:for-index="dataArrayIndex" wx:key="index">
+                <!-- <block wx:for="{{dataArray}}" wx:for-item="articles" wx:for-index="dataArrayIndex" wx:key="index">
                     <block wx:for="{{articles}}" wx:for-item="item" wx:key="{{item.id}}" wx:for-index="index">
-                        <view  bindtap='checkImage' class='picItem' data-urlSrc='{{srcUrl}}{{item.imgurl}}'>
-                            <image src='{{srcUrl}}{{item.imgurl}}' style='width:340rpx' mode='widthFix' />
+                        <view class='picItem'>
+                            <image bindtap='checkImage' data-urlSrc='{{srcUrl}}{{item.imgurl}}' src='{{srcUrl}}{{item.imgurl}}' style='width:340rpx' mode='widthFix' />
                         </view>
                     </block>
-                </block>
+                </block> -->
 
+            <!-- </view> -->
+
+            <view style="width:100%" class='tempBox'>
+
+                <view class="picItem picItem1">
+                    <view bindtap='checkImage' data-urlSrc='{{srcUrl}}{{item.imgurl}}' wx:for="{{col1}}" wx:key="id" style='margin-bottom:10rpx;'>
+                        <image src='{{srcUrl}}{{item.imgurl}}' style="width:340rpx;height:{{item.height}}rpx"></image>
+                    </view>
+                </view>
+
+                <view class="picItem">
+                    <view bindtap='checkImage' data-urlSrc='{{srcUrl}}{{item.imgurl}}' wx:for="{{col2}}" wx:key="id" style='margin-bottom:10rpx;'>
+                        <image src='{{srcUrl}}{{item.imgurl}}' style="width:340rpx;height:{{item.height}}rpx"></image>
+                    </view>
+                </view>
             </view>
 
         </scroll-view>
 
     </view>
 
+</view>
+<view style="display:none">
+    <image wx:for="{{imgArr}}" wx:key="id" id="{{item.id}}" src='{{srcUrl}}{{item.imgurl}}' bindload="onImageLoad"></image>
 </view>
