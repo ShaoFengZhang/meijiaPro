@@ -9,8 +9,19 @@
         "pages/myQr/myQr",
         "pages/myPoster/myPoster",
         "pages/userCheck/userCheck",
-        "pages/recruit/recruit"
+        "pages/recruit/recruit",
+        "pages/loginPage/loginPage",
+        "pages/storeInfo/storeInfo",
+        "pages/serviceManagement/serviceManagement",
+        "pages/orderGround/orderGround",
+        "pages/serviceOrder/serviceOrder",
+        "pages/servicePeople/servicePeople"
     ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "店铺的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",

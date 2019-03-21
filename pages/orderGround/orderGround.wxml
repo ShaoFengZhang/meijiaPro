@@ -1,0 +1,67 @@
+<view class="bg">
+
+    <view class='scrollView'>
+
+        <scroll-view id='botScroll' scroll-y style="height:100vh">
+
+            <!-- topSwiper -->
+            <swiper id='topSwiper' indicator-color="rgba(255,255,255,0.6)" indicator-active-color="rgba(255,255,255,1)" indicator-dots="{{true}}" circular="{{1}}" autoplay="{{true}}" interval="{{2000}}" duration="{{500}}">
+                <block wx:for="{{swiperUrls}}" wx:key="{{index}}">
+                    <swiper-item>
+                        <image src="{{item.icon}}" class="slide-image" />
+                    </swiper-item>
+                </block>
+            </swiper>
+
+            <!-- orderBtn -->
+            <view class='orderBtnView pubilceView flex'>
+                <view class='orderBtn'>
+                    <text>服务预约</text>
+                </view>
+
+                <view class='storeDetails'>
+                    <text>店铺详情</text>
+                </view>
+            </view>
+
+            <!-- 店主推荐 -->
+            <view class='topStoreInfoView flex pubilceView'>
+
+                <view class='topStoreTxt'>
+                    <view style='font-size:40rpx;font-weight:bold;'>店主热荐</view>
+                    <view style='font-size:28rpx;color:#8E8E93;margin-top:10rpx;'>店主私人热烈推荐款式，马上试试！</view>
+
+                    <view class='hotSwiper pubilceView'>
+                        <swiper id='botSwiper' indicator-dots="{{0}}" autoplay="{{0}}" display-multiple-items="{{2}}" next-margin="160rpx" circular="{{1}}" skip-hidden-item-layout="{{1}}" >
+                            <block wx:for="{{swiperUrls}}" wx:key="{{index}}">
+                                <swiper-item>
+                                    <image src="{{item.icon}}" />
+                                </swiper-item>
+                            </block>
+                        </swiper>
+                    </view>
+
+                </view>
+            </view>
+
+            <!-- 热门款式 -->
+            <view class='topStoreInfoView flex pubilceView' style='margin-top:30rpx;'>
+
+                <view class='topStoreTxt'>
+                    <view style='font-size:40rpx;font-weight:bold;'>热门款式</view>
+                    <view style='font-size:28rpx;color:#8E8E93;margin-top:10rpx;'>大家都喜欢的款式，不容错过！</view>
+                </view>
+
+                <view class='styleList flex'>
+                    <view class='styleItem' wx:for="{{swiperUrls}}" wx:key="{{index}}">
+                        <image src='{{item.icon}}' />
+                    </view>
+                </view>
+
+            </view>
+
+        </scroll-view>
+
+    </view>
+
+</view>

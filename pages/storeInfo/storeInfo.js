@@ -4,12 +4,15 @@ import LoginFunc from '../../utils/Login.js';
 Page({
 
     data: {
+
     },
 
     onLoad: function(options) {
+
     },
 
     onShow: function() {
+
     },
 
     // 分享
@@ -22,18 +25,21 @@ Page({
         }
     },
 
-    // goToStore
-    goToStore: function() {
-        wx.navigateTo({
-            url: '/pages/storeInfo/storeInfo',
-        });
+    // 获取电话号码
+    getPhoneNumber: function(e) {
+        console.log(e);
     },
 
-    //goToMyWorks
-    goToMyWorks: function() {
-        wx.navigateTo({
-            url: '/pages/myQr/myQr',
-        });
+    // 获取地址
+    getAddressFun: function() {
+        let _this=this;
+        wx.chooseLocation({
+            success(res) {
+                console.log(res);
+                _this.setData({
+                    address: res.address, 
+                })
+            }
+        })
     },
-
 })

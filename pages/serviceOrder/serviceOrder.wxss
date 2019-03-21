@@ -1,0 +1,299 @@
+#botScroll {
+    background-color: #f6f6f8;
+}
+
+.publicView {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 40rpx;
+    background-color: #fff;
+}
+
+.rightLine {
+    width: 710rpx;
+    height: 2rpx;
+    background: #f6f6f8;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* 顶部店铺名称 */
+
+.topUserInfo {
+    height: 176rpx;
+}
+
+.userIcon {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 24rpx;
+}
+
+.storeName {
+    width: 442rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #333;
+    margin-right: 12rpx;
+    /* 单行文本...效果 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.callBtnView {
+    width: 88rpx;
+    height: 88rpx;
+    background: rgba(255, 85, 119, 1);
+    box-shadow: 0px 12rpx 24rpx 0px rgba(255, 85, 119, 0.24);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.callBtnView image {
+    width: 88rpx;
+    height: 88rpx;
+}
+
+/* 服务项目 */
+
+.serviceItemView {
+    margin-top: 2rpx;
+    height: 232rpx;
+    overflow: hidden;
+}
+
+.serviceTxt {
+    color: #1c1c1c;
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-top: 36rpx;
+}
+
+/* 具体项目 */
+
+.serviceItemList {
+    box-sizing: border-box;
+    padding-right: 40rpx;
+}
+
+.serviceItem {
+    width: 210rpx;
+    height: 88rpx;
+    border-radius: 20rpx;
+    text-align: center;
+    line-height: 88rpx;
+    font-size: 32rpx;
+}
+
+.noselect {
+    background: rgba(245, 244, 247, 1);
+    color: #1c1c1c;
+}
+
+.select {
+    background: rgba(255, 85, 119, 1);
+    color: white;
+}
+
+.threeServiceView {
+}
+
+.threeItems {
+    width: 710rpx;
+    height: 124rpx;
+    background: rgba(255, 255, 255, 1);
+    line-height: 124rpx;
+    font-size: 32rpx;
+    box-sizing: border-box;
+    padding-right: 40rpx;
+    border-bottom: 2rpx solid #f6f6f8;
+}
+
+.threeItems image {
+    width: 22rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    position: relative;
+    bottom: 4rpx;
+    margin-left: 22rpx;
+}
+
+.radio text {
+    display: inline-block;
+    width: 160rpx;
+}
+
+/* 店主留言 */
+
+.messageView {
+    height: 408rpx;
+    padding-right: 40rpx;
+    overflow: hidden;
+}
+
+.messageTxt {
+    margin-top: 40rpx;
+}
+
+.txtArea {
+    width: 670rpx;
+    height: 240rpx;
+    background: rgba(245, 244, 247, 1);
+    border-radius: 16rpx;
+    margin-top: 20rpx;
+    box-sizing: border-box;
+    padding: 30rpx;
+    font-size: 32rpx;
+}
+
+#textarea {
+    width: 610rpx;
+    height: 240rpx;
+}
+
+/* 预约人信息 */
+
+.orderUserView {
+    margin-top: 16rpx;
+    height: 446rpx;
+    overflow: hidden;
+}
+
+.orderUserTxt {
+    margin-top: 28rpx;
+}
+
+.orderUser {
+    width: 100%;
+    height: 124rpx;
+    color: #1c1c1c;
+    font-size: 32rpx;
+    line-height: 124rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #f6f6f8;
+}
+
+.userNameView {
+    width: 162rpx;
+}
+
+#userName {
+    width: 360rpx;
+    height: 124rpx;
+}
+
+.placeClass {
+    font-size: 28rpx;
+}
+
+#getTelBtn {
+    width: 142rpx;
+    height: 48rpx;
+    border-radius: 32rpx;
+    border: 2rpx solid rgba(28, 28, 28, 1);
+    text-align: center;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    color: #1c1c1c;
+    background-color: #fff;
+    padding: 0;
+    margin-left: 0;
+}
+
+/* 底部预约按钮 */
+
+.orderBtnView {
+    width: 100%;
+    height: 240rpx;
+}
+
+.orderBtn {
+    width: 670rpx;
+    height: 96rpx;
+    background: rgba(255, 85, 119, 1);
+    box-shadow: 0px 12rpx 24rpx 0px rgba(255, 85, 119, 0.24);
+    border-radius: 48rpx;
+    color: white;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: 36rpx;
+}
+
+/* 预约时间选择弹窗 */
+
+.orderTimeCheckView {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(28, 28, 28, 0.7);
+}
+
+.orderTimeCheck {
+    width: 100%;
+    height: 734rpx;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.topDayView {
+    width: 100%;
+    height: 88rpx;
+    box-sizing: border-box;
+    padding-left: 40rpx;
+    border-bottom: 2rpx solid #f6f6f8;
+    line-height: 88rpx;
+}
+
+.topDayView swiper {
+    height: 88rpx;
+}
+
+.swiperNos {
+    color: #8e8e93;
+}
+
+.swiperSelect {
+    color: #f57;
+}
+
+.botTimeView {
+    width: 100%;
+    height: 646rpx;
+    box-sizing: border-box;
+    padding: 46rpx 40rpx;
+}
+
+.botTimeBox {
+    width: 150rpx;
+    height: 88rpx;
+    border-radius: 8rpx;
+    border: 2rpx solid rgba(239, 239, 241, 1);
+    flex-direction: column;
+}
+
+.botTimeBoxOrder {
+    background: rgba(255, 255, 255, 1);
+}
+
+.botTimeBoxNoOrder {
+    background: rgba(245, 244, 247, 1);
+}
+
+.botTimeBoxSelect {
+    background:rgba(255,85,119,1);
+    color: white;
+}
+
+.botTimeBoxNoSelect{
+     background:rgba(245,244,247,1);
+     color: #8E8E93;
+}

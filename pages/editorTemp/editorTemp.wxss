@@ -148,7 +148,7 @@
 
 .myTempIcon, .myTempIcon image {
     width: 340rpx;
-    height: 560rpx;
+    height: 340rpx;
 }
 
 .changePicBtn {

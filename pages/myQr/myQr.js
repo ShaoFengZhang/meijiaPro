@@ -4,19 +4,23 @@ import LoginFunc from '../../utils/Login.js';
 Page({
 
     data: {
-        userQr:'',
+        userQr: '',
+        imgUrls:[1,2,3,6,5,8,9,10]
     },
 
-    onLoad: function (options) {
-
+    onLoad: function(options) {
+        this.setData({
+            // ScrollHeight: app.windowHeight * 750 / app.sysWidth - 262,
+            scrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 360,
+        });
     },
 
-    onShow: function () {
+    onShow: function() {
 
     },
 
     // 分享
-    onShareAppMessage: function (e) {
+    onShareAppMessage: function(e) {
         let title = "点击查看";
         let path = `/pages/index/index`;
         return {
@@ -24,15 +28,15 @@ Page({
             path: path,
         }
     },
-    
+
     //上传图片
-    upLoadImage: function () {
+    upLoadImage: function() {
         const _this = this;
         wx.chooseImage({
             count: 1,
             sizeType: ['compressed'],
             sourceType: ['album'],
-            success: function (res) {
+            success: function(res) {
                 var tempFilePaths = res.tempFilePaths;
                 wx.showToast({
                     title: '正在上传...',
@@ -50,7 +54,7 @@ Page({
                     header: {
                         "Content-Type": "multipart/form-data"
                     },
-                    success: function (res) {
+                    success: function(res) {
                         var data = JSON.parse(res.data);
                         //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
                         var productInfo = that.data.productInfo;
@@ -70,13 +74,13 @@ Page({
                         wx.hideToast();
 
                     },
-                    fail: function (res) {
+                    fail: function(res) {
                         wx.hideToast();
                         wx.showModal({
                             title: '错误提示',
                             content: '上传图片失败',
                             showCancel: false,
-                            success: function (res) { }
+                            success: function(res) {}
                         })
                     }
                 });

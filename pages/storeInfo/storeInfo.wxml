@@ -1,0 +1,118 @@
+<view class="bg">
+
+    <view class='scrollView'>
+
+        <scroll-view id='botScroll' scroll-y style="height:100vh">
+
+            <!-- top店铺信息View -->
+            <view class='topStoreInfoView flex'>
+                <view class='topStoreTxt'>
+                    <view style='font-size:40rpx;font-weight:bold;'>店铺信息</view>
+                    <view style='font-size:28rpx;color:#000;margin-top:10rpx;'>填写你店铺的基本信息</view>
+                </view>
+            </view>
+
+            <!-- 三个信息栏 -->
+            <view class='storeDetails'>
+
+                <view class='storeName deatilsView flex'>
+                    <view style='height:44rpx;'>店铺名称</view>
+                    <input style='width:500rpx;' maxlength='15' placeholder="请输入店铺名称" placeholder-class="placeClass"></input>
+                </view>
+
+                <view class='storeTel deatilsView flex'>
+                    <view style='height:44rpx;'>联系电话</view>
+                    <input placeholder="请输入联系电话" placeholder-class="placeClass"></input>
+                    <button id='getTelBtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">自动获取</button>
+                </view>
+
+                <view class=' flex storeAddress'>
+                    <view style='height:44rpx;'>店铺地址</view>
+                    <textarea id='textarea' placeholder-class="placeClass" bindblur="bindTextAreaBlur" auto-height placeholder="请输入店铺地址" />
+                    <button id='getAddressBtn' bindtap='getAddressFun'>获取地址</button>
+                </view>
+
+            </view>
+
+            <!-- 隔线 -->
+            <view class='secant'></view>
+
+            <!-- 上传二维码 -->
+
+            <view class='topUpQrView'>
+
+                <view class='topUpQrViewTxt'>
+
+                    <view style='font-size:40rpx;font-weight:bold;'>二维码</view>
+                    <view style='font-size:28rpx;color:#8E8E93;margin-top:10rpx;'>填写你的二维码，用户可扫码加你好友</view>
+
+                </view>
+
+                <view class='qrListView'>
+
+                    <view class='popUpView flex'>
+
+                        <view class='popUpBtn' bindtap='upLoadImage'>
+
+                            <view class='addIcon'> + </view>
+
+                            <view class='upText'>
+                                <text>点击上传</text>
+                            </view>
+                        </view>
+
+                        <view class='myQrView' wx:key="index" wx:for="{{[1,2,3,4,5]}}">
+                            <image src='/assets/picture/logo.png' />
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+
+            <!-- 隔线 -->
+            <view class='secant'></view>
+
+            <!-- 店铺环境 -->
+            <view class='topUpQrView'>
+
+                <view class='topUpQrViewTxt'>
+
+                    <view style='font-size:40rpx;font-weight:bold;'>店铺环境</view>
+                    <view style='font-size:28rpx;color:#8E8E93;margin-top:10rpx;'>添加你店铺环境的照片，方便用户来访</view>
+
+                </view>
+
+                <view class='qrListView'>
+
+                    <view class='popUpView flex'>
+
+                        <view class='popUpBtn' bindtap='upLoadImage'>
+
+                            <view class='addIcon'> + </view>
+
+                            <view class='upText'>
+                                <text>点击上传</text>
+                            </view>
+                        </view>
+
+                        <view class='myQrView' wx:key="index" wx:for="{{[1,2,3,4,5]}}">
+                            <image src='/assets/picture/logo.png' />
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+
+            <!-- nextStep -->
+            <view class='nextStepView flex'style='justify-content: center;'>
+                <view class='nextBtn'>下一步</view>
+            </view>
+
+        </scroll-view>
+
+    </view>
+
+
+</view>

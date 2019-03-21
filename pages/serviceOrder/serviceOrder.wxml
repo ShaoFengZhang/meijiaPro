@@ -1,0 +1,169 @@
+<view class="bg">
+
+    <view class='scrollView'>
+
+        <scroll-view id='botScroll' scroll-y style="height:100vh">
+
+            <!-- 商铺名称 -->
+            <view class='topUserInfo publicView flex' style='justify-content: start;'>
+
+                <view class='userIcon'>
+                    <open-data type="userAvatarUrl"></open-data>
+                </view>
+
+                <view class='storeName'>
+                    <text>店铺名称</text>
+                </view>
+                <view class='callBtnView' bindtap='makePhoneCall'>
+                    <image src='/assets/picture/callBtn.png' />
+                </view>
+
+            </view>
+
+            <!-- 服务项目 -->
+            <view class='serviceItemView publicView'>
+
+                <view class='serviceTxt'>
+                    <text>服务项目</text>
+                </view>
+
+                <view class='serviceItemList flex' style='margin-top:18rpx;'>
+                    <view class='serviceItem {{item.nowClass}}' wx:for="{{serviceArr}}" wx:key="index">
+                        <text>{{item.name}}</text>
+                    </view>
+                </view>
+
+                <view class='rightLine'></view>
+            </view>
+
+            <!-- 服务项 -->
+            <view class='threeServiceView publicView flex'>
+
+                <!-- 中间三个服务 -->
+                <view class='threeItems flex'>
+                    <text style='font-weight:bold;'>预约时间</text>
+                    <view>
+                        <text style='color:#C7C7CC;'>手动选择</text>
+                        <image src='/assets/picture/lightFlow.png' />
+                    </view>
+                </view>
+
+                <view class='threeItems flex'>
+                    <text style='font-weight:bold;'>美睫设计师</text>
+                    <view>
+                        <text style='color:#C7C7CC;'>到店安排</text>
+                        <image src='/assets/picture/lightFlow.png' />
+                    </view>
+                </view>
+
+                <view class='threeItems flex'>
+                    <text style='font-weight:bold;'>半永久设计师</text>
+                    <view>
+                        <text style='color:#C7C7CC;'>到店安排</text>
+                        <image src='/assets/picture/lightFlow.png' />
+                    </view>
+                </view>
+
+                <!-- 下边两个服务 -->
+                <view class='threeItems flex'>
+                    <text style='font-weight:bold;'>卸甲</text>
+                    <view>
+                        <radio-group class="radio-group" bindchange="radioChange1">
+                            <label class="radio" wx:for="{{rackItems}}" wx:key="index">
+                                <radio color="#FF5577" value="{{item.name}}" checked="{{item.checked}}" />
+                                <text>{{item.value}}</text>
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+
+                <view class='threeItems flex'>
+                    <text style='font-weight:bold;'>补睫毛</text>
+                    <view>
+                        <radio-group class="radio-group" bindchange="radioChange2">
+                            <label class="radio" wx:for="{{eyelashItems}}" wx:key="index">
+                                <radio color="#FF5577" value="{{item.name}}" checked="{{item.checked}}" />
+                                <text>{{item.value}}</text>
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+
+            </view>
+
+            <!-- 店主留言 -->
+            <view class='messageView publicView'>
+
+                <view class='messageTxt'>
+                    <text style='font-size:32rpx;font-weight:bold;color:#1C1C1C;'>给店主留言</text>
+                </view>
+
+                <view class='txtArea flex'>
+                    <textarea id='textarea' maxlength="96" placeholder-class="placeClass" bindblur="bindTextAreaBlur" auto-height placeholder="" />
+                </view>
+
+            </view>
+
+            <!-- 预约人信息 -->
+            <view class='orderUserView publicView'>
+
+                <view class='orderUserTxt'>
+                    <text style='font-size:40rpx;color:#000;font-weight:bold;'>预约人信息</text>
+                </view>
+
+                <view class='orderUser flex' style='justify-content:start'>
+                    <view class='userNameView'>
+                        <text>姓名</text>
+                    </view>
+
+                    <input id='userName' placeholder='请输入姓名' placeholder-class="placeClass"></input>
+                </view>
+
+                <view class='orderUser flex' style='justify-content:start'>
+                    <view class='userNameView'>
+                        <text>手机号码</text>
+                    </view>
+
+                    <input id='userName' placeholder='请输入手机号码' placeholder-class="placeClass"></input>
+
+                    <button id='getTelBtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">自动获取</button>
+                </view>
+
+            </view>
+
+            <!-- 预约按钮 -->
+            <view class='orderBtnView flex' style='justify-content: center;'>
+                <view class='orderBtn'>
+                    <text>立即预约</text>
+                </view>
+            </view>
+
+        </scroll-view>
+
+    </view>
+
+    <!-- 预约时间选择 -->
+    <view class='orderTimeCheckView' wx:key>
+        <view class='orderTimeCheck'>
+
+            <view class='topDayView'>
+
+                <swiper indicator-dots="{{0}}" circular="1" autoplay="{{0}}" duration="{{100}}" display-multiple-items="3" next-margin="30rpx">
+                    <block wx:for="{{orderTimeArr}}" wx:key="index">
+                        <swiper-item>
+                            <text class='swiperNos'>{{item.day}}</text>
+                        </swiper-item>
+                    </block>
+                    </swiper>
+
+            </view>
+
+            <view class='botTimeView'>
+                <view class='botTimeBox flex {{"botTimeBoxNoSelect"}}' style='justify-content: center;'>
+                    <view class='botTime'>8:30</view>
+                    <view class='botTime' style='color:#8E8E93;font-size:24rpx;'>不可约</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

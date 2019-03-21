@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 14,
 			"list": [
 				{
 					"id": 0,
@@ -99,6 +99,48 @@
 					"id": -1,
 					"name": " 招募",
 					"pathName": "pages/recruit/recruit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/loginPage/loginPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商铺信息",
+					"pathName": "pages/storeInfo/storeInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务管理",
+					"pathName": "pages/serviceManagement/serviceManagement",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约落地",
+					"pathName": "pages/orderGround/orderGround",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务预约",
+					"pathName": "pages/serviceOrder/serviceOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "师傅选择",
+					"pathName": "pages/servicePeople/servicePeople",
 					"scene": null
 				}
 			]

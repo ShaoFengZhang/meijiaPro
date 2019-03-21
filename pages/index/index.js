@@ -32,7 +32,7 @@ Page({
         ]
     },
 
-    onLoad: function (options) {
+    onLoad: function(options) {
         // 处理用户信息
         if (app.globalData.userInfo) {
             console.log('if');
@@ -89,7 +89,12 @@ Page({
     },
 
     onShow: function() {
-
+        if (app.globalData.userInfo) {
+            this.setData({
+                userInfo: app.globalData.userInfo,
+                hasUserInfo: true
+            });
+        }
     },
 
     // 分享
@@ -102,27 +107,7 @@ Page({
         }
     },
 
-    catchtap:function(){},
-
-    // 获取用户信息
-    getUserInfo: function(e) {
-        console.log(e);
-        let btnID = e.currentTarget.id;
-        if (e && e.detail.userInfo) {
-            app.globalData.userInfo = e.detail.userInfo
-            this.setData({
-                userInfo: e.detail.userInfo,
-                hasUserInfo: true
-            });
-            let iv = e.detail.iv;
-            let encryptedData = e.detail.encryptedData;
-            let session_key = app.globalData.session_key;
-            // LoginFunc.checkUserInfo(app, e.detail, iv, encryptedData, session_key);
-            this.tempBindTap(e)
-        } else {
-            util.showToastFun('我们需要您的授权哦~');
-        }
-    },
+    catchtap: function() {},
 
     //首页分类点击函数
     tempBindTap: function(e) {
@@ -139,6 +124,16 @@ Page({
         wx.navigateTo({
             url: '/pages/recruit/recruit',
         })
+    },
+
+    // goToLogin
+    goToLogin:function(){
+        this.setData({
+            hasUserInfo: true
+        });
+        wx.navigateTo({
+            url: '/pages/loginPage/loginPage',
+        });
     }
 
 })

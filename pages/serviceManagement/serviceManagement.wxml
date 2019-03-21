@@ -1,0 +1,91 @@
+<view class="bg">
+
+    <view class='scrollView'>
+
+        <scroll-view id='botScroll' scroll-y style="height:100vh">
+
+            <!-- top店铺信息View -->
+            <view class='topStoreInfoView flex publicView'>
+
+                <view class='topStoreTxt'>
+                    <view style='font-size:40rpx;font-weight:bold;'>设计师</view>
+                    <view style='font-size:28rpx;color:#8E8E93;margin-top:10rpx;'>添加你的店员信息，如果没有店员可以跳过</view>
+                </view>
+                <view class='viewLine'></view>
+            </view>
+
+            <!-- 设计师列表 -->
+            <view class='designerView publicView'>
+
+                <view class='designerList flex' wx:for="{{[1,2]}}" wx:key="index">
+                    <view class='topUpIcon'> + </view>
+                    <view class='headIcon' wx:if="{{haveIcon}}">
+                        <image src='/assets/picture/logo.png' />
+                    </view>
+                    <input placeholder="请输入设计师名字" maxlength='10' placeholder-class="placeClass"></input>
+                    <button id='deleteBtn' wx:if="{{haveIcon}}">删除</button>
+                </view>
+
+            </view>
+
+            <!-- 添加按钮 -->
+            <view class='upBtnView flex' style='justify-content: center;'>
+                <view class='upBtn'> + 添加 </view>
+            </view>
+
+            <!-- 服务信息文字 -->
+            <view class='serviceTxt'>
+                <text style='margin-left:40rpx;'>服务信息</text>
+            </view>
+
+            <!-- 服务信息 -->
+            <view class='serviceInfo'>
+
+                <!-- 选择时间 -->
+                <view class='serviceInfoTxt'>
+                    <text>工作时间</text>
+                </view>
+
+                <view class='checkTimeView flex'>
+                    <view class="section__title">{{defaultTimeTxt}}</view>
+                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                        <view class="picker">
+                            <image src='/assets/picture/botFlow.png' />
+                        </view>
+                    </picker>
+                </view>
+
+                <!-- 休息日 -->
+                <view class='serviceInfoTxt' style='margin-top:40rpx;'>
+                    <text>休息日</text>
+                </view>
+
+                <view class='dayOffList flex' style='justify-content:start;'>
+                    <view class='dayOffItem {{item.classname}}' wx:for="{{dayArr}}" wx:key="index">
+                        <text>{{item.txt}}</text>
+                    </view>
+                </view>
+
+                <!-- 服务项目 -->
+                <view class='serviceInfoTxt' style='margin-top:20rpx;'>
+                    <text>服务项目</text>
+                </view>
+
+                <view class='dayOffList flex' style='justify-content:start;'>
+                    <view class='dayOffItem {{item.classname}}' wx:for="{{serviceProject}}" wx:key="index">
+                        <text>{{item.txt}}</text>
+                    </view>
+                </view>
+
+            </view>
+
+            <!-- 保存按钮 -->
+            <view class='nextStepView flex' style='justify-content: center;'>
+                <view class='nextBtn'>保存</view>
+            </view>
+        </scroll-view>
+
+    </view>
+
+
+</view>

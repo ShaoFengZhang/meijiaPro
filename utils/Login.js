@@ -3,6 +3,7 @@ const loginURl = `${domin}dologin`;
 const checkUserUrl = `${domin}updateUser`;
 const srcDomin = "https://dj.58100.com/"
 let loginNum=0;
+let checkuserNum=0;
 const wxloginfnc = (app) => {
     wx.login({
         success: res => {
@@ -22,7 +23,7 @@ const wxloginfnc = (app) => {
                         wx.setStorageSync('user_openID', value.data.openid);
                         app.globalData.session_key = value.data.session_key;
                         wx.setStorageSync('u_id', value.data.uid);
-                        // getSettingfnc(app);
+                        getSettingfnc(app);
                     }else{
                         loginNum++;
                         if (loginNum>=3){
@@ -69,14 +70,19 @@ const checkUserInfo = (app, res, iv, encryptedData, session_key) => {
         })
         requestURl(app, checkUserUrl, "POST", {
             // rowData: res.rawData,
-            open_id: app.user_OpenId,
+            // open_id: app.user_OpenId,
             iv: iv,
             encryptedData: encryptedData,
-            session_key: session_key
+            seesion_key: session_key
         }, function(data) {
             console.log('checkUser', data);
             //失败重新登录
-            if (res.code == -1 || res.code == -2) {
+            if (data.status !=1) {
+                checkuserNum++;
+                if (checkuserNum>=3){
+                    checkuserNum=0;
+                    return;
+                }
                 wxloginfnc(app);
             }
         });

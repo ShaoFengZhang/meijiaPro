@@ -29,7 +29,7 @@
                 <text>使用海报分享码</text>
             </view>
 
-            <view class='popWinView popQr' bindtap='upLoadImage'>
+            <view class='popWinView popQr' bindtap='popUpQr'>
                 <text>上传二维码</text>
             </view>
 
@@ -40,13 +40,16 @@
         </view>
     </view>
 
+    <!-- 二维码列表 -->
     <view class='changePicBox' wx:if="{{showPopUpQrView}}">
 
         <view class='changePic'>
 
             <view class='myPicCarTxt'>
-                <view style="font-size:32rpx;color:#1C1C1C;font-weight:bold">我的图库</view>
-                <view style="font-size:48rpx;color:#4A4A4A">X</view>
+                <view style="font-size:32rpx;color:#1C1C1C;font-weight:bold">我的二维码</view>
+                <view style="font-size:48rpx;color:#4A4A4A">
+                    <image style='width:32rpx;height:32rpx;' src='/assets/picture/closeBtn.png' />
+                </view>
                 <view class='closeChangePicBox' bindtap='popUpQr'></view>
             </view>
 
@@ -61,10 +64,10 @@
 
                     <view class='myTempBox'>
 
-                        <view class='myTempList' wx:if="{{myTempArr.length}}" wx:for="{{myTempArr}}" wx:key="index">
+                        <view class='myTempList' data-src='{{item}}' wx:if="{{myTempArr.length}}" wx:for="{{myTempArr}}" wx:key="index" bindtap='upLoadHaveImage'>
 
                             <view class='myTempIcon'>
-                                <image src='/assets/picture/banner2.png' />
+                                <image src='{{item}}' />
                             </view>
 
                         </view>

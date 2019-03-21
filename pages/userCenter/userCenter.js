@@ -4,10 +4,13 @@ import LoginFunc from '../../utils/Login.js';
 Page({
 
     data: {
+        userInfo: {},
+        hasUserInfo: false,
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
         myPosterArr: [],
         srcDomin: LoginFunc.srcDomin,
         ifShowView: 0,
-        ifShowPopView:0,
+        ifShowPopView: 0,
     },
 
     onLoad: function(options) {
@@ -15,6 +18,41 @@ Page({
             ScrollHeight: app.windowHeight * 750 / app.sysWidth - 262,
             // ScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 416,
         });
+        // 处理用户信息
+        if (app.globalData.userInfo) {
+            console.log('if');
+            this.setData({
+                userInfo: app.globalData.userInfo,
+                hasUserInfo: true
+            });
+        } else {
+            console.log('else');
+            wx.getUserInfo({
+                success: res => {
+                    app.globalData.userInfo = res.userInfo
+                    this.setData({
+                        userInfo: res.userInfo,
+                        hasUserInfo: true
+                    });
+                    let iv = res.iv;
+                    let encryptedData = res.encryptedData;
+                    let session_key = app.globalData.session_key;
+                    LoginFunc.checkUserInfo(app, res, iv, encryptedData, session_key);
+                }
+            })
+        };
+    },
+
+    onShow: function() {
+        if (app.globalData.userInfo) {
+            this.setData({
+                userInfo: app.globalData.userInfo,
+                hasUserInfo: true
+            });
+        }
+    },
+
+    onTabItemTap: function() {
         this.urlPage = 1;
         this.rows = 6;
         this.cangetData = true;
@@ -22,15 +60,7 @@ Page({
             myPosterArr: [],
             ifShowView: 0,
         });
-        this.onLoadPost=true;
         this.getDataFun();
-    },
-
-    onShow: function() {
-        if (this.data.myPosterArr.length <= 3 && !this.onLoadPost) {
-            this.getDataFun();
-        };
-        this.onLoadPost = false;
     },
 
     // 分享
@@ -44,9 +74,9 @@ Page({
     },
 
     goToMyBrand: function() {
-        // wx.navigateTo({
-        //     url: `/pages/myBrand/myBrand`,
-        // })
+        wx.navigateTo({
+            url: `/pages/myBrand/myBrand`,
+        })
     },
 
     bindscrolltolower: function() {
@@ -72,10 +102,10 @@ Page({
             console.log(res);
             if (res.status == 1) {
                 _this.setData({
-                    myPosterArr: _this.data.myPosterArr.concat(res.poster),
+                    myPosterArr: _this.data.myPosterArr.concat(res.posters),
                     ifShowView: 1,
                 });
-                if ((res.poster.length % _this.rows) != 0 || (res.poster.length / _this.rows) <= 0) {
+                if ((res.posters.length % _this.rows) != 0 || (res.posters.length / _this.rows) <= 0) {
                     _this.cangetData = false;
                 }
             }
@@ -105,15 +135,15 @@ Page({
         LoginFunc.wxRequest(app, popPosterUrl, "POST", data, function(res) {
             console.log(res);
             if (res.status == 1) {
-                
-            }else{
+
+            } else {
                 util.showToastFun("删除失败,请重试")
             }
         })
     },
 
     // 点击删除
-    delectClick:function(e){
+    delectClick: function(e) {
         let _this = this;
         let urlid = e.currentTarget.dataset.id;
         let urlNum = e.currentTarget.dataset.num;
@@ -122,17 +152,24 @@ Page({
             aniamtion: true
         });
         this.setData({
-            ifShowPopView:1,
+            ifShowPopView: 1,
             popId: urlid,
         });
     },
 
-    hidePopView:function(){
+    hidePopView: function() {
         wx.showTabBar({
-            aniamtion:true
+            aniamtion: true
         });
         this.setData({
-            ifShowPopView:0,
+            ifShowPopView: 0,
         })
     },
+
+    // 强制授权
+    goToLogin: function() {
+        wx.navigateTo({
+            url: '/pages/loginPage/loginPage',
+        });
+    }
 })

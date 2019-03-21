@@ -1,0 +1,20 @@
+<view class="bg">
+
+    <view class='logoView'>
+        <image src='/assets/picture/logo.png' />
+    </view>
+
+    <view class='themTxt'>
+        <text>美甲助手Pro</text>
+    </view>
+
+    <view class='introduceTxt'>
+        <text>美甲店主的得力助手</text>
+    </view>
+
+    <view class='loginView'>
+        <text>授权登录</text>
+        <button lang='zh_CN' id='getInfoTop' open-type='getUserInfo' bindgetuserinfo="getUserInfo"></button>
+    </view>
+
+</view>

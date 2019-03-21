@@ -1,0 +1,195 @@
+/* top店铺信息View */
+
+#botScroll {
+    background-color: #f6f6f8;
+}
+
+.publicView {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 40rpx;
+    background-color: #fff;
+}
+
+.topStoreInfoView {
+    height: 176rpx;
+    border-top: 2rpx solid #c1c0c9;
+}
+
+.viewLine {
+    width: 710rpx;
+    height: 2rpx;
+    background-color: #c1c0c9;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.designerView {
+}
+
+.designerList {
+    width: 100%;
+    height: 124rpx;
+    border-bottom: 2rpx solid #c1c0c9;
+    justify-content: start;
+}
+
+.topUpIcon, .headIcon, .headIcon image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.topUpIcon {
+    background: rgba(251, 251, 251, 1);
+    border: 2rpx solid rgba(239, 239, 241, 1);
+    text-align: center;
+    line-height: 76rpx;
+    border-radius: 50%;
+    color: #c7c7cc;
+    font-size: 80rpx;
+    margin-right: 34rpx;
+}
+
+.headIcon {
+    margin-right: 34rpx;
+}
+
+.placeClass {
+    color: #c7c7cc;
+    font-size: 32rpx;
+}
+
+input {
+    width: 346rpx;
+    color: #1c1c1c;
+    font-size: 32rpx;
+}
+
+/* 删除获取按钮 */
+
+#deleteBtn {
+    width: 142rpx;
+    height: 48rpx;
+    border-radius: 32rpx;
+    border: 2rpx solid rgba(28, 28, 28, 1);
+    text-align: center;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    color: #1c1c1c;
+    background-color: #fff;
+    padding: 0;
+}
+
+/* 添加按钮区域 */
+
+.upBtnView {
+    width: 100%;
+    height: 200rpx;
+    background: #fff;
+}
+
+.upBtn {
+    width: 400rpx;
+    height: 108rpx;
+    background: rgba(28, 28, 28, 1);
+    border-radius: 56rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 108rpx;
+    font-weight: bold;
+    font-size: 36rpx;
+}
+
+.serviceTxt {
+    width: 100%;
+    height: 120rpx;
+    line-height: 120rpx;
+    color: #8e8e93;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.serviceInfo {
+    width: 100%;
+    height: 940rpx;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 40rpx;
+}
+
+.serviceInfoTxt {
+    color: #1c1c1c;
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.checkTimeView {
+    width: 670rpx;
+    height: 88rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20rpx;
+    border: 2rpx solid rgba(239, 239, 241, 1);
+    margin-top: 14rpx;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+}
+
+.section__title {
+    font-size: 32rpx;
+    color: #c7c7cc;
+    line-height: 88rpx;
+}
+
+.picker image {
+    width: 26rpx;
+    height: 16rpx;
+}
+
+.dayOffList{
+    margin-top: 14rpx;
+}
+
+.dayOffItem {
+    width: 210rpx;
+    height: 88rpx;
+    border-radius: 20rpx;
+    border: 2rpx solid rgba(239, 239, 241, 1);
+    text-align: center;
+    line-height: 88rpx;
+    font-size: 32rpx;
+    margin-bottom: 20rpx;
+    margin-right: 10rpx;
+}
+
+.dayOffItem:nth-child(3n+0){
+    margin-right: 0;
+}
+
+.noSelectDay {
+    background: rgba(245, 244, 247, 1);
+    color: #1C1C1C;
+}
+
+.selectDay{
+    background:rgba(255,85,119,1);
+    color: #fff;
+}
+
+.nextStepView {
+    width: 100%;
+    height: 222rpx;
+    background-color: #f6f6f8;
+}
+
+.nextBtn {
+    width: 670rpx;
+    height: 96rpx;
+    background: rgba(255, 85, 119, 1);
+    box-shadow: 0px 12rpx 24rpx 0px rgba(255, 85, 119, 0.24);
+    border-radius: 48rpx;
+    text-align: center;
+    line-height: 96rpx;
+    color: white;
+}

@@ -7,7 +7,7 @@ Page({
         showPicOptions: false,
         showPopUpQrView: false,
         nowTempSrc: '',
-        myTempArr: [],
+        myTempArr: ['/assets/picture/logo.png','/assets/picture/logo.png', '/assets/picture/logo.png','/assets/picture/logo.png','/assets/picture/logo.png'],
     },
 
     onLoad: function(options) {
@@ -59,6 +59,7 @@ Page({
         })
     },
 
+    // 保存照片
     savePicture: function() {
         let _this = this;
         this.saveImage();
@@ -92,7 +93,7 @@ Page({
         })
     },
 
-    //上传图片二维码
+    //从手机相册上传图片二维码
     upLoadImage: function() {
         const _this = this;
         this.ifWithQr = false;
@@ -101,6 +102,10 @@ Page({
             sizeType: ['compressed'],
             sourceType: ['album'],
             success: function(res) {
+                _this.setData({
+                    showPopUpQrView: !_this.data.showPopUpQrView,
+                    showPicOptions: false,
+                })
                 var tempFilePaths = res.tempFilePaths;
                 console.log(tempFilePaths[0]);
                 util.showLoadFun('正在上传');
@@ -125,7 +130,7 @@ Page({
                                     showPicOptions: false,
                                     nowTempSrc: LoginFunc.srcDomin + data.newimg,
                                     nowNewImg: data.newimg,
-                                    oldimgSrc:data.oldimage,
+                                    oldimgSrc: data.oldimage,
                                     newimgid: data.newimgid,
                                 })
                             } else {
@@ -147,6 +152,18 @@ Page({
                     }
                 });
             }
+        });
+    },
+
+
+    // upLoadHaveImage 上传已有二维码
+    upLoadHaveImage:function(e){
+        const _this = this;
+        this.ifWithQr = false;
+        let src=e.currentTarget.dataset.src
+        _this.setData({
+            showPopUpQrView: !_this.data.showPopUpQrView,
+            showPicOptions: false,
         });
     },
 
@@ -204,5 +221,5 @@ Page({
                 // _this.getPosterQrTemp();
             }
         })
-    }
+    },
 })

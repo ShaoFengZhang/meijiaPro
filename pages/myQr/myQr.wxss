@@ -22,11 +22,12 @@
 
 .popUpView {
     width: 100%;
-    height: 122rpx;
+    height: 204rpx;
     box-sizing: border-box;
     padding: 0 40rpx;
     display: flex;
     justify-content: start;
+    overflow: hidden;
 }
 
 .popUpBtn {
@@ -35,6 +36,7 @@
     box-sizing: border-box;
     border: 2rpx dashed #d9d9d9;
     padding-top: 50rpx;
+    margin: 0 auto;
 }
 
 .addIcon {
@@ -59,4 +61,14 @@
 .myQrView, .myQrView image {
     width: 204rpx;
     height: 204rpx;
+}
+
+#botScroll{
+    box-sizing: border-box;
+    padding: 24rpx;
+}
+
+.worksView image{
+    vertical-align: middle;
+    margin-bottom: 20rpx;
 }

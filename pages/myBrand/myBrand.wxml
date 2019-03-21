@@ -1,24 +1,44 @@
 <view class="bg">
 
-    <view class='topUserView'>
-        <view class='userInfo userViewItem'>
-            <view class="userIcon">
-                <open-data type="userAvatarUrl"></open-data>
-            </view>
-
-            <view class="userName">
-                <open-data type="userNickName"></open-data>
-            </view>
-
-            <!-- <view class='rightFlow'>
-                <image src='/assets/picture/rightFlow.png' />
-            </view> -->
+    <view class='userView viewPublic' hover-class='hover-class'>
+        <view class="userIcon">
+            <open-data type="userAvatarUrl"></open-data>
         </view>
 
-        <view class='myPosterTxt userViewItem'>
-            <text class='brandIcon'>R</text>
-            <text>我的品牌</text>
+        <view class="userName">
+            <open-data type="userNickName"></open-data>
         </view>
+    </view>
+
+    <view class='myStore viewPublic' hover-class='hover-class' bindtap='goToStore'>
+
+        <view class='storeLogo'>
+            <image src='/assets/picture/mystore.png' />
+        </view>
+
+        <view class='txt'>
+            <text>我的小店</text>
+        </view>
+
+        <view class='rightFlow'>
+            <image src='/assets/picture/lightFlow.png' />
+        </view>
+
+    </view>
+
+    <view class='myStore viewPublic myWorks' hover-class='hover-class' bindtap='goToMyWorks'>
+        <view class='storeLogo'>
+            <image src='/assets/picture/myworks.png' />
+        </view>
+
+        <view class='txt'>
+            <text>作品管理</text>
+        </view>
+
+        <view class='rightFlow'>
+            <image src='/assets/picture/lightFlow.png' />
+        </view>
+
     </view>
 
 </view>

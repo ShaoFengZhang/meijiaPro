@@ -3,7 +3,7 @@
     <view class="topView">
 
         <view class='myQrTxt'>
-            <text>二维码</text>
+            <text>作品集</text>
         </view>
 
         <view class='popUpView'>
@@ -13,15 +13,27 @@
                 <view class='addIcon'> + </view>
 
                 <view class='upText'>
-                    <text>上传照片</text>
+                    <text>上传作品</text>
                 </view>
-            </view>
-
-            <view class='myQrView' wx:if="{{userQr}}">
-                <image src='/assets/picture/banner1.png' />
             </view>
         </view>
 
+    </view>
+
+    <view class='worksList'>
+
+        <scroll-view id='botScroll' scroll-y style="height:{{scrollHeight}}rpx">
+
+            <view class='worksBox flex'>
+
+                <view class='worksView' wx:for="{{imgUrls}}" wx:key="{{index}}">
+                    <image src='/assets/picture/indexBanner1.png' style='width:340rpx;height:340rpx;' mode='center' />
+                </view>
+
+            </view>
+
+        </scroll-view>
+        
     </view>
 
 

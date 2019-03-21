@@ -1,0 +1,84 @@
+.pubilceView {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+}
+
+/* 顶部swiper */
+
+#topSwiper, .slide-image {
+    width: 670rpx;
+    height: 400rpx;
+    border-radius: 8rpx;
+    overflow: hidden;
+}
+
+#topSwiper {
+    margin: 0 auto;
+}
+
+/* 两个功能按钮 */
+
+.orderBtnView {
+    margin-top: 34rpx;
+}
+
+.orderBtnView view {
+    width: 320rpx;
+    height: 108rpx;
+    border-radius: 16rpx;
+    text-align: center;
+    line-height: 108rpx;
+    color: white;
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.orderBtn {
+    background: linear-gradient(315deg, rgba(118, 65, 252, 1) 0%, rgba(151, 125, 253, 1) 47%, rgba(134, 105, 242, 1) 100%);
+    box-shadow: 0px 6px 20px 0px rgba(136, 107, 243, 0.35);
+}
+
+.storeDetails {
+    background: linear-gradient(231deg, rgba(243, 89, 109, 1) 0%, rgba(254, 132, 166, 1) 44%, rgba(248, 98, 123, 1) 100%);
+    box-shadow: 0px 6px 20px 0px rgba(255, 85, 119, 0.3);
+}
+
+/* 店主热荐 */
+
+.topStoreInfoView {
+    margin-top: 60rpx;
+}
+
+.hotSwiper {
+    padding: 0;
+    margin-top: 24rpx;
+}
+
+#botSwiper {
+    width: 710rpx;
+    height: 200rpx;
+    display: flex;
+    align-items: center;
+}
+
+.hotSwiper image {
+    width: 240rpx;
+    height: 180rpx;
+    box-shadow: 0px 6rpx 20rpx 0px rgba(28, 28, 28, 0.2);
+    border-radius: 12rpx;
+}
+
+/* 热门款式 */
+
+.styleList{
+    margin-top: 24rpx;
+}
+
+.styleList image {
+    width: 320rpx;
+    height: 242rpx;
+    box-shadow: 0px 6rpx 12rpx 0px rgba(229, 229, 229, 1);
+    vertical-align: middle;
+    margin-bottom: 30rpx;
+}

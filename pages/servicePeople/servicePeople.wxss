@@ -1,0 +1,42 @@
+.bg, .scrollView, #botScroll {
+    background-color: #f6f6f8;
+}
+
+.publicView {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    overflow: hidden;
+    color: #262628;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.userLsit {
+    height: 140rpx;
+    border-bottom: 2rpx solid #f6f6f8;
+}
+
+.userLsit image {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+}
+
+.username{
+    width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.goStore {
+    height: 94rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

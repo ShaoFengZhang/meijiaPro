@@ -11,9 +11,9 @@
                 <open-data type="userNickName"></open-data>
             </view>
 
-            <!-- <view class='rightFlow'>
+            <view class='rightFlow' bindtap='goToMyBrand'>
                 <image src='/assets/picture/lightFlow.png' />
-            </view> -->
+            </view>
         </view>
 
         <view class='myPosterTxt userViewItem'>
@@ -66,5 +66,7 @@
         </view>
 
     </view>
+
+    <view class='goToLogo' bindtap='goToLogin' wx:if="{{!hasUserInfo && canIUse}}"></view>
 
 </view>

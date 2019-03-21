@@ -1,0 +1,40 @@
+<view class="bg">
+
+    <view class='scrollView'>
+
+        <scroll-view id='botScroll' scroll-y style="height:{{scrollHeight}}rpx">
+
+            <!-- 人员列表 -->
+            <view class='userLsit publicView flex' wx:for="{{usrArr}}" wx:key="index">
+                <view>
+                    <image src='/assets/picture/logo.png' />
+                </view>
+
+                <view class='username'>
+                    <text>店主</text>
+                </view>
+
+                <switch data-='' bindchange="switch1Change" color="#FF5577" />
+
+
+            </view>
+
+        </scroll-view>
+
+        <!-- 到店安排 -->
+        <view class='goStore publicView'>
+
+            <view>
+                <text>到店安排</text>
+            </view>
+
+            <view class='goStoreClick'>
+                <switch bindchange="switch2Change" color="#FF5577" />
+            </view>
+
+        </view>
+
+    </view>
+
+
+</view>
