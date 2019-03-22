@@ -1,7 +1,8 @@
 const domin = "https://dj.58100.com/home/index/"; //线上域名
+const domin2 = "https://dj.58100.com/home/shop/"; //线上域名
 const loginURl = `${domin}dologin`;
 const checkUserUrl = `${domin}updateUser`;
-const srcDomin = "https://dj.58100.com/"
+const srcDomin = "https://dj.58100.com/";
 let loginNum=0;
 let checkuserNum=0;
 const wxloginfnc = (app) => {
@@ -155,5 +156,6 @@ module.exports = {
     wxloginfnc: wxloginfnc,
     checkUserInfo: checkUserInfo,
     domin: domin,
+    domin2: domin2,
     srcDomin: srcDomin,
 }

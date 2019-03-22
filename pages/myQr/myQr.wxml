@@ -13,7 +13,7 @@
                 <view class='addIcon'> + </view>
 
                 <view class='upText'>
-                    <text>上传作品</text>
+                    <text>上传最新作品</text>
                 </view>
             </view>
         </view>

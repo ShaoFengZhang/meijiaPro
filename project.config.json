@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -141,6 +141,13 @@
 					"id": -1,
 					"name": "师傅选择",
 					"pathName": "pages/servicePeople/servicePeople",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单信息",
+					"pathName": "pages/orderList/orderList",
 					"scene": null
 				}
 			]

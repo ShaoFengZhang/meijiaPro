@@ -5,7 +5,18 @@ Page({
 
     data: {
         userQr: '',
-        imgUrls:[1,2,3,6,5,8,9,10]
+        imgUrls: [
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png',
+            '/assets/picture/indexBanner1.png'
+        ],
     },
 
     onLoad: function(options) {
@@ -29,61 +40,72 @@ Page({
         }
     },
 
+    // getData:
+    getData: function() {
+
+    },
+
     //上传图片
     upLoadImage: function() {
         const _this = this;
         wx.chooseImage({
-            count: 1,
+            count: 10,
             sizeType: ['compressed'],
             sourceType: ['album'],
             success: function(res) {
-                var tempFilePaths = res.tempFilePaths;
                 wx.showToast({
                     title: '正在上传...',
                     icon: 'loading',
                     mask: true,
                     duration: 10000
-                })
-                wx.uploadFile({
-                    url: util.getClientSetting().domainName + '/home/uploadfilenew',
-                    filePath: tempFilePaths[0],
-                    name: 'uploadfile_ant',
-                    formData: {
-                        'imgIndex': 0
-                    },
-                    header: {
-                        "Content-Type": "multipart/form-data"
-                    },
-                    success: function(res) {
-                        var data = JSON.parse(res.data);
-                        //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
-                        var productInfo = that.data.productInfo;
-                        if (productInfo.bannerInfo == null) {
-                            productInfo.bannerInfo = [];
-                        }
-                        productInfo.bannerInfo.push({
-                            "catalog": data.Catalog,
-                            "fileName": data.FileName,
-                            "url": data.Url
-                        });
-                        that.setData({
-                            userQr: productInfo
-                        });
-
-                        //如果是最后一张,则隐藏等待中  
-                        wx.hideToast();
-
-                    },
-                    fail: function(res) {
-                        wx.hideToast();
-                        wx.showModal({
-                            title: '错误提示',
-                            content: '上传图片失败',
-                            showCancel: false,
-                            success: function(res) {}
-                        })
-                    }
                 });
+                let tempFilePaths = res.tempFilePaths;
+                let upImgCount = tempFilePaths.length;
+                let hasCount = 0;
+                for (let i = 0; i < upImgCount; i++) {
+                    wx.uploadFile({
+                        url: util.getClientSetting().domainName + '/home/uploadfilenew',
+                        filePath: tempFilePaths[i],
+                        name: 'uploadfile_ant',
+                        formData: {
+                            'imgIndex': 0
+                        },
+                        header: {
+                            "Content-Type": "multipart/form-data"
+                        },
+                        success: function(res) {
+                            if (res.status == 1) {
+                                hasCount++;
+                                var data = JSON.parse(res.data);
+                                //如果是最后一张,则隐藏等待中  
+                                if (hasCount == upImgCount) {
+                                    wx.hideToast();
+                                    _this.getData();
+                                }
+                            }else{
+                                wx.hideToast();
+                                wx.showModal({
+                                    title: '错误提示',
+                                    content: '上传图片失败',
+                                    showCancel: false,
+                                    success: function (res) { }
+                                });
+                                return; 
+                            }
+
+                        },
+                        fail: function(res) {
+                            wx.hideToast();
+                            wx.showModal({
+                                title: '错误提示',
+                                content: '上传图片失败',
+                                showCancel: false,
+                                success: function(res) {}
+                            })
+                        }
+                    });
+                }
+
             }
         });
     }

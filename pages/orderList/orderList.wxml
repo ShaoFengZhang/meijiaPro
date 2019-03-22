@@ -1,0 +1,44 @@
+<view class="bg">
+    <scroll-view id='botScroll' scroll-y style="height:100vh">
+
+        <view class="orderListView">
+
+            <view class='storename'>
+                <text style='font-size:40rpx;font-weight:bold;color:#000;'>店铺名称</text>
+            </view>
+
+            <!--项目名称-->
+            <view class='itemName'>
+                <text>项目名称：</text>
+                <text style='margin-left:16rpx;'>美甲、美睫</text>
+            </view>
+
+            <!-- 预约时间 -->
+            <view class='itemTime'>
+                <text>预约时间：</text>
+                <text style='margin-left:16rpx;'>3月12日 14:00</text>
+            </view>
+
+            <!-- 店铺电话 -->
+            <view class='itemCall'>
+                <text>店铺电话：</text>
+                <text style='margin-left:16rpx;'>18609861649</text>
+            </view>
+
+            <!-- 店铺地址 -->
+            <view class='itemAdress flex'>
+                <view>店铺地址：</view>
+                <view class='adressArea'>杭州西湖区余杭塘路135号3号楼908 哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+            </view>
+
+            <view class='line'></view>
+
+            <view class='orderType'>
+                <view style='color:#FF5577;'>取消预约</view>
+                <!-- <view style='color:#999999'>订单已取消</view> -->
+            </view>
+
+        </view>
+
+    </scroll-view>
+</view>
