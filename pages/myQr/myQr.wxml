@@ -27,9 +27,13 @@
             <view class='worksBox flex'>
 
                 <view class='worksView' wx:for="{{imgUrls}}" wx:key="{{index}}">
-                    <image src='/assets/picture/indexBanner1.png' style='width:340rpx;height:340rpx;' mode='center' />
+                    <image src='{{domin}}{{item}}' style='width:340rpx;height:340rpx;' mode='center' />
                 </view>
 
+            </view>
+
+            <view class='noMyTempList' wx:if="{{!imgUrls.length && ifShowView}}">
+                <text>您暂时还没有数据哦~</text>
             </view>
 
         </scroll-view>

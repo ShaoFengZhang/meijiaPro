@@ -143,7 +143,7 @@
     </view>
 
     <!-- 预约时间选择 -->
-    <view class='orderTimeCheckView' wx:key>
+    <view class='orderTimeCheckView' wx:if="{{}}">
         <view class='orderTimeCheck'>
 
             <view class='topDayView'>

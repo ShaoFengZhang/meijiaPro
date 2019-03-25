@@ -51,6 +51,7 @@ Page({
 
     // 添加店铺信息
     addStoreInfo: function() {
+        util.showLoadFun("保存中")
         let _this = this;
         let addStoreInfoUrl = LoginFunc.domin2 + 'addshop';
         let data = {
@@ -65,8 +66,11 @@ Page({
         }
         LoginFunc.wxRequest(app, addStoreInfoUrl, "POST", data, function(res) {
             console.log(res);
+            wx.hideLoading();
             if (res.status == 1) {
-
+                wx.navigateTo({
+                    url: '/pages/serviceManagement/serviceManagement',
+                })
             } else {
 
             }
@@ -142,6 +146,7 @@ Page({
         })
     },
 
+    // 名称输入
     nameInput: function(e) {
         console.log(e);
         let txt = e.detail.value;
@@ -150,6 +155,7 @@ Page({
         })
     },
 
+    // 电话号码输入
     telInput: function(e) {
         console.log(e);
         let txt = e.detail.value;
@@ -158,6 +164,7 @@ Page({
         })
     },
 
+    // 地址输入
     addressInput: function(e) {
         console.log(e);
         let txt = e.detail.value;

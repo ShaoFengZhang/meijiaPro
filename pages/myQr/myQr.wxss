@@ -72,3 +72,10 @@
     vertical-align: middle;
     margin-bottom: 20rpx;
 }
+
+.noMyTempList{
+    width: 100%;
+    text-align: center;
+    color: #888888;
+    font-size: 28rpx;
+}

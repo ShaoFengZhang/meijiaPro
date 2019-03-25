@@ -74,7 +74,8 @@ const checkUserInfo = (app, res, iv, encryptedData, session_key) => {
             // open_id: app.user_OpenId,
             iv: iv,
             encryptedData: encryptedData,
-            seesion_key: session_key
+            seesion_key: session_key,
+            uid: wx.getStorageSync('u_id'),
         }, function(data) {
             console.log('checkUser', data);
             //失败重新登录

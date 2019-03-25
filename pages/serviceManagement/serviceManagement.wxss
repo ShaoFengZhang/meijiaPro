@@ -54,6 +54,8 @@
 
 .headIcon {
     margin-right: 34rpx;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .placeClass {

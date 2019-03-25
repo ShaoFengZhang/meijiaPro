@@ -4,18 +4,11 @@ import LoginFunc from '../../utils/Login.js';
 Page({
 
     data: {
+        domin: LoginFunc.srcDomin,
+        ifShowView: 0,
         userQr: '',
         imgUrls: [
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png',
-            '/assets/picture/indexBanner1.png'
+
         ],
     },
 
@@ -24,6 +17,7 @@ Page({
             // ScrollHeight: app.windowHeight * 750 / app.sysWidth - 262,
             scrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 360,
         });
+        this.getData();
     },
 
     onShow: function() {
@@ -42,7 +36,25 @@ Page({
 
     // getData:
     getData: function() {
-
+        let _this = this;
+        let getDataUrl = LoginFunc.domin2 + 'dosample';
+        let data = {
+            "uid": wx.getStorageSync('u_id'),
+            "openid": wx.getStorageSync('user_openID'),
+        }
+        LoginFunc.wxRequest(app, getDataUrl, "POST", data, function(res) {
+            console.log(res);
+            if (res.status == 1) {
+                _this.setData({
+                    imgUrls: res.sample,
+                    ifShowView: 1,
+                })
+            }else{
+                _this.setData({
+                    ifShowView: 1,
+                }) 
+            }
+        })
     },
 
     //上传图片
@@ -64,33 +76,36 @@ Page({
                 let hasCount = 0;
                 for (let i = 0; i < upImgCount; i++) {
                     wx.uploadFile({
-                        url: util.getClientSetting().domainName + '/home/uploadfilenew',
+                        url: LoginFunc.domin2 + 'sample',
                         filePath: tempFilePaths[i],
-                        name: 'uploadfile_ant',
+                        name: 'sample',
                         formData: {
-                            'imgIndex': 0
+                            "uid": wx.getStorageSync('u_id'),
+                            "openid": wx.getStorageSync('user_openID'),
                         },
                         header: {
                             "Content-Type": "multipart/form-data"
                         },
                         success: function(res) {
-                            if (res.status == 1) {
+                            console.log(res);
+                            let data = JSON.parse(res.data);
+                            if (data.status == 1) {
                                 hasCount++;
-                                var data = JSON.parse(res.data);
                                 //如果是最后一张,则隐藏等待中  
                                 if (hasCount == upImgCount) {
                                     wx.hideToast();
                                     _this.getData();
                                 }
-                            }else{
+                            } else {
                                 wx.hideToast();
                                 wx.showModal({
                                     title: '错误提示',
                                     content: '上传图片失败',
                                     showCancel: false,
-                                    success: function (res) { }
+                                    success: function(res) {}
                                 });
-                                return; 
+                                _this.getData();
+                                return;
                             }
 
                         },
@@ -101,7 +116,8 @@ Page({
                                 content: '上传图片失败',
                                 showCancel: false,
                                 success: function(res) {}
-                            })
+                            });
+                            _this.getData();
                         }
                     });
                 }

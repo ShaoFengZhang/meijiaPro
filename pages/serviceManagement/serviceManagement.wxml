@@ -17,19 +17,20 @@
             <!-- 设计师列表 -->
             <view class='designerView publicView'>
 
-                <view class='designerList flex' wx:for="{{[1,2]}}" wx:key="index">
-                    <view class='topUpIcon'> + </view>
-                    <view class='headIcon' wx:if="{{haveIcon}}">
-                        <image src='/assets/picture/logo.png' />
+                <view class='designerList flex' wx:for="{{designerArr}}" wx:key="index">
+                    <view class='topUpIcon' data-index='{{index}}' bindtap='addHeadImg' wx:if="{{!item.icon}}"> + </view>
+                    <view class='headIcon' wx:if="{{item.icon}}">
+                        <image src='{{item.icon}}' wx:if="{{item.type==1}}" />
+                        <image src='{{domin}}{{item.icon}}' wx:if="{{item.type==2}}" data-index='{{index}}' bindtap='addHeadImg'/>
                     </view>
-                    <input placeholder="请输入设计师名字" maxlength='10' placeholder-class="placeClass"></input>
-                    <button id='deleteBtn' wx:if="{{haveIcon}}">删除</button>
+                    <input placeholder="请输入设计师名字" placeholder-class="placeClass" data-index='{{index}}' value="{{item.name}}" bindinput="nameInput"></input>
+                    <button id='deleteBtn' wx:if="{{item.type==1?false:true}}" data-index='{{index}}' bindtap='deleteDesigner'>删除</button>
                 </view>
 
             </view>
 
             <!-- 添加按钮 -->
-            <view class='upBtnView flex' style='justify-content: center;'>
+            <view class='upBtnView flex' style='justify-content: center;' bindtap='addDesigner'>
                 <view class='upBtn'> + 添加 </view>
             </view>
 
@@ -48,7 +49,7 @@
 
                 <view class='checkTimeView flex'>
                     <view class="section__title">{{defaultTimeTxt}}</view>
-                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                    <picker mode="multiSelector" bindchange="bindchange" value="{{multiIndex}}" range="{{multiArray}}">
                         <view class="picker">
                             <image src='/assets/picture/botFlow.png' />
                         </view>
@@ -61,7 +62,7 @@
                 </view>
 
                 <view class='dayOffList flex' style='justify-content:start;'>
-                    <view class='dayOffItem {{item.classname}}' wx:for="{{dayArr}}" wx:key="index">
+                    <view class='dayOffItem {{item.flag? "selectDay":"noSelectDay"}}' wx:for="{{dayArr}}" wx:key="index" data-index='{{index}}' bindtap='restDayClick'>
                         <text>{{item.txt}}</text>
                     </view>
                 </view>
@@ -72,7 +73,7 @@
                 </view>
 
                 <view class='dayOffList flex' style='justify-content:start;'>
-                    <view class='dayOffItem {{item.classname}}' wx:for="{{serviceProject}}" wx:key="index">
+                    <view class='dayOffItem {{item.flag? "selectDay":"noSelectDay"}}' wx:for="{{serviceProject}}" wx:key="index" data-index='{{index}}' bindtap='srverItemClick'>
                         <text>{{item.txt}}</text>
                     </view>
                 </view>
@@ -80,7 +81,7 @@
             </view>
 
             <!-- 保存按钮 -->
-            <view class='nextStepView flex' style='justify-content: center;'>
+            <view class='nextStepView flex' style='justify-content: center;' bindtap='saveInfo'>
                 <view class='nextBtn'>保存</view>
             </view>
         </scroll-view>
