@@ -79,3 +79,76 @@ button::after {
 .hover-class {
     background-color: #f2f2f2;
 }
+
+/* 多层FormId */
+
+.btn {
+    width: 20rpx;
+    height: 20rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 8rpx;
+    position: absolute;
+    background-color: #fff;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.Hbtn {
+    width: 10rpx;
+    height: 10rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 8rpx;
+    position: absolute;
+    background-color: #fff;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.aa {
+    width: 710rpx;
+    height: 330rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;
+}
+
+.Haa {
+    width: 340rpx;
+    height: 648rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;
+}
+
+.Baa {
+    width: 288rpx;
+    height: 64rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;
+}
+
+.Caa {
+    width: 340rpx;
+    height: 240rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;
+}
+
+#btn1, #btn2, #btn3, #btn4, #btn5, #Hbtn1, #Hbtn2, #Hbtn3, #Hbtn4, #Hbtn5,
+#Ybtn1, #Ybtn2, #Ybtn3, #Ybtn4, #Ybtn5, #Xbtn1, #Xbtn2, #Xbtn3, #Xbtn4, #Xbtn5 {
+    overflow: visible;
+}

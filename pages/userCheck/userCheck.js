@@ -12,6 +12,14 @@ Page({
             // classScrollHeight: app.windowHeight * 750 / app.sysWidth - 416,
             classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 64,
         });
+        this.urlPage = 1;
+        this.rows = 6;
+        this.cangetData = true;
+        this.setData({
+            myPosterArr: [],
+            ifShowView: 0,
+        });
+        this.getDataFun();
     },
 
     onShow: function () {

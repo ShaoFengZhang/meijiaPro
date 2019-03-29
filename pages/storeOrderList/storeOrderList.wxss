@@ -1,0 +1,121 @@
+.bg, #botScroll {
+    background: #f6f6f8;
+}
+
+.topBar {
+    width: 100%;
+    height: 88rpx;
+    background: white;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #8e8e93;
+}
+
+.classBar {
+    width: 128rpx;
+    position: relative;
+}
+
+.topline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rpx;
+    background: #f57;
+}
+
+#botScroll {
+    box-sizing: border-box;
+    padding-top: 16rpx;
+}
+
+.orderListView {
+    width: 100%;
+    height: 456rpx;
+    background-color: #fff;
+    margin-bottom: 16rpx;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+}
+
+.userInfo {
+    width: 100%;
+    height: 108rpx;
+    box-sizing: border-box;
+    border-bottom: 4rpx solid #f6f6f8;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.userIcon, .userIcon image {
+    width: 88rpx;
+    height: 88rpx;
+}
+
+.username {
+    margin-left: 24rpx;
+    font-size: 32rpx;
+}
+
+.userPetname {
+    /* 单行文本...效果 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.orderTime {
+    width: 136rpx;
+    margin-left: 20rpx;
+}
+
+.orderStatus {
+    width: 104rpx;
+    height: 108rpx;
+    margin-left: 86rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.orderStatus image, .userCall image {
+    width: 44rpx;
+    height: 44rpx;
+}
+
+.teamName, .designer, .userCall, .content {
+    width: 100%;
+    display: flex;
+    font-size: 32rpx;
+    color: #999;
+    margin-top: 16rpx;
+}
+
+.txtView {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contentView {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 48rpx;
+}
+
+.noMyTempList {
+    width: 100%;
+    text-align: center;
+    color: #888;
+    font-size: 28rpx;
+}

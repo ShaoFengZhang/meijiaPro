@@ -11,10 +11,10 @@
                 </view>
 
                 <view class='username'>
-                    <text>店主</text>
+                    <text>{{item.name}}</text>
                 </view>
 
-                <switch data-='' bindchange="switch1Change" color="#FF5577" />
+                <switch data-index='{{index}}' data-id='{{item.id}}' checked="{{item.check}}" bindchange="switch1Change" color="#FF5577" />
 
 
             </view>
@@ -29,7 +29,7 @@
             </view>
 
             <view class='goStoreClick'>
-                <switch bindchange="switch2Change" color="#FF5577" />
+                <switch bindchange="switch2Change"  checked="{{botCheck}}" color="#FF5577" />
             </view>
 
         </view>

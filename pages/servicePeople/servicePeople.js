@@ -4,14 +4,25 @@ import LoginFunc from '../../utils/Login.js';
 Page({
 
     data: {
-        noGoStore:0,
-        usrArr:[1,2,3]
+        botCheck:false,
+        usrArr:[
+        ],
     },
 
     onLoad: function(options) {
         this.setData({
             scrollHeight: app.windowHeight * 750 / app.sysWidth - 94,
         });
+        if (options && options.designer){
+            console.log(options.designer)
+            this.designerArr = JSON.parse(options.designer);
+            for (let i = 0; i < this.designerArr.length;i++){
+                this.designerArr[i].check=false;
+            }
+            this.setData({
+                usrArr: this.designerArr,
+            })
+        }
     },
 
     onShow: function() {
@@ -28,21 +39,43 @@ Page({
         }
     },
 
-    // 获取电话号码
-    getPhoneNumber: function(e) {
+    switch1Change:function(e){
         console.log(e);
+        let index=e.currentTarget.dataset.index;
+        this.data.usrArr[index].check = e.detail.value;
+        for (let i = 0; i < this.data.usrArr.length;i++){
+            if (i != index && this.data.usrArr[index].check){
+                this.data.usrArr[i].check=false;
+                this.data.botCheck=false;
+            }
+        }
+        this.setData({
+            usrArr: this.data.usrArr,
+            botCheck: this.data.botCheck,
+        });
+        this.backTopPage();
     },
 
-    // 获取地址
-    getAddressFun: function() {
-        let _this = this;
-        wx.chooseLocation({
-            success(res) {
-                console.log(res);
-                _this.setData({
-                    address: res.address,
-                })
+    switch2Change:function(e){
+        this.data.botCheck = e.detail.value;
+        for (let i = 0; i < this.data.usrArr.length; i++) {
+            if (this.data.botCheck) {
+                this.data.usrArr[i].check = false;
             }
+        };
+        this.setData({
+            usrArr: this.data.usrArr,
+            botCheck: this.data.botCheck,
+        });
+        this.backTopPage();
+    },
+
+    // 返回上一页
+    backTopPage:function(){
+        app.designerInfo = this.data
+        wx.navigateBack({
+            delta: 1
         })
     },
+
 })

@@ -95,11 +95,13 @@
 
 .myTempList {
     margin-bottom: 24rpx;
+    position: relative;
 }
 
 .myTempIcon, .myTempIcon image {
     width: 340rpx;
     height: 560rpx;
+    position: relative;
 }
 
 .myTempDes {

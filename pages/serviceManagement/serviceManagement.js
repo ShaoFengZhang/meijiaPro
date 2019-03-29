@@ -7,22 +7,29 @@ Page({
         domin: LoginFunc.srcDomin,
         multiArray: [
 
-            ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00',
-                '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00',
-                '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00'
+            [
+
+                // '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30',
+                 '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00',
+                //   '22:30', '23:00', '23:30', '24:00'
             ],
 
             ["至"],
 
-            ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00',
-                '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00',
-                '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00'
+            [
+
+                // '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30', 
+                '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00',
+                //  '22:30', '23:00', '23:30', '24:00'
             ],
         ],
 
         defaultTimeTxt: "8:00 至 17:00",
         multiIndex: [8, 0, 17],
         dayArr: [{
+                "txt": "周日",
+                "flag": true,
+            }, {
                 "txt": "周一",
                 "flag": false,
             },
@@ -47,10 +54,6 @@ Page({
                 "flag": true,
             },
             {
-                "txt": "周日",
-                "flag": true,
-            },
-            {
                 "txt": "没有休息日",
                 "flag": false,
             },
@@ -59,10 +62,12 @@ Page({
         serviceProject: [{
                 "txt": "美甲",
                 "flag": 1,
+                "point": "meijia",
             },
             {
                 "txt": "美睫",
                 "flag": 0,
+                "point": "meijie",
             },
             {
                 "txt": "半永久",
@@ -102,7 +107,7 @@ Page({
         console.log(e);
         let index = e.currentTarget.dataset.index;
         let name = e.detail.value;
-        this.data.designerArr[index].name = name.slice(0,11);
+        this.data.designerArr[index].name = name.slice(0, 11);
         this.setData({
             designerArr: this.data.designerArr,
         })
@@ -114,7 +119,7 @@ Page({
             name: '',
             icon: '',
             type: 2,
-            id:'',
+            id: '',
         };
         this.data.designerArr.push(obj);
         this.setData({
@@ -129,7 +134,7 @@ Page({
             util.showToastFun("最少有一个");
             return;
         }
-        this.data.designerArr.pop();
+        this.data.designerArr.splice(index, 1);
         this.setData({
             designerArr: this.data.designerArr,
         })
@@ -148,7 +153,7 @@ Page({
 
     // 休息日点击事件
     restDayClick: function(e) {
-        let flag=true;
+        let flag = true;
         let index = e.currentTarget.dataset.index;
         this.data.dayArr[index].flag = !this.data.dayArr[index].flag;
         if (index == this.data.dayArr.length - 1 && this.data.dayArr[this.data.dayArr.length - 1].flag) {
@@ -181,7 +186,7 @@ Page({
 
         // 组织校验设计师信息
         for (let i = 0; i < this.data.designerArr.length; i++) {
-            if (this.data.designerArr[i].icon == "" || this.data.designerArr[i].name==""){
+            if (this.data.designerArr[i].icon == "" || this.data.designerArr[i].name == "") {
                 util.showToastFun("请完善设计师信息");
                 return;
             }
@@ -190,10 +195,16 @@ Page({
                 "openid": wx.getStorageSync('user_openID'),
                 "name": this.data.designerArr[i].name,
                 "headimg": this.data.designerArr[i].icon,
-                "type": this.data.designerArr[i].type,
+                "type": i + 1,
                 "id": this.data.designerArr[i].id,
             };
             designerUpArr.push(obj);
+        }
+
+        // 校验工作时间
+        if (parseInt(this.startTime) >= parseInt(this.endTime)){
+            util.showToastFun("请选择合理的工作时间");
+            return;
         }
 
         // 校验休息日
@@ -268,13 +279,13 @@ Page({
                 };
 
                 // 上下班时间
-                _this.startTime = res.fuwuinfo.start;
-                _this.endTime = res.fuwuinfo.end;
+                _this.startTime = res.fuwuinfo.start ? res.fuwuinfo.start : "8:00";
+                _this.endTime = res.fuwuinfo.end ? res.fuwuinfo.end : "17:00";
                 _this.setData({
                     designerArr: _this.data.designerArr,
                     defaultTimeTxt: _this.startTime + " 至 " + _this.endTime,
-                    dayArr: JSON.parse(res.fuwuinfo.rest),
-                    serviceProject: JSON.parse(res.fuwuinfo.worktype),
+                    dayArr: res.fuwuinfo.rest ? JSON.parse(res.fuwuinfo.rest) : _this.data.dayArr,
+                    serviceProject: res.fuwuinfo.worktype ? JSON.parse(res.fuwuinfo.worktype) : _this.data.serviceProject,
                 });
             }
         })

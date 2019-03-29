@@ -1,5 +1,7 @@
 const domin = "https://dj.58100.com/home/index/"; //线上域名
 const domin2 = "https://dj.58100.com/home/shop/"; //线上域名
+const domin3 = "https://dj.58100.com/home/order/"; //线上域名
+const domin4 = "https://dj.58100.com/home/send/"; //线上域名
 const loginURl = `${domin}dologin`;
 const checkUserUrl = `${domin}updateUser`;
 const srcDomin = "https://dj.58100.com/";
@@ -25,6 +27,12 @@ const wxloginfnc = (app) => {
                         app.globalData.session_key = value.data.session_key;
                         wx.setStorageSync('u_id', value.data.uid);
                         getSettingfnc(app);
+                        // if (app.orderCallFlag) {
+                        //     app.orderCallFlag = true;
+                        //     app.orderCall("12");
+                        // } else {
+                        //     app.orderCallFlag = false;
+                        // }
                     }else{
                         loginNum++;
                         if (loginNum>=3){
@@ -158,5 +166,7 @@ module.exports = {
     checkUserInfo: checkUserInfo,
     domin: domin,
     domin2: domin2,
+    domin3: domin3,
+    domin4: domin4,
     srcDomin: srcDomin,
 }

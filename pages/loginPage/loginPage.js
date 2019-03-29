@@ -40,8 +40,7 @@ Page({
             LoginFunc.checkUserInfo(app, e.detail, iv, encryptedData, session_key);
             wx.navigateBack({
                 delta: 1
-            })
-            console.log(`${this.backPath}`)
+            });
         } else {
             util.showToastFun('我们需要您的授权哦~');
         }

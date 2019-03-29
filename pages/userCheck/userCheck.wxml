@@ -12,7 +12,8 @@
             <view class='userList'>
 
                 <view class='userIcon'>
-                    <image src='/assets/picture/banner2.png' />
+                    <image src='/assets/picture/logo.png' />
+                    <!-- <image src='/assets/picture/logo.png' /> -->
                 </view>
 
                 <view class='userName'>

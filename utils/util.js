@@ -43,4 +43,5 @@ module.exports = {
     getRandom: getRandom,
     showToastFun: showToastFun,
     showLoadFun: showLoadFun,
+    formatNumber: formatNumber,
 }

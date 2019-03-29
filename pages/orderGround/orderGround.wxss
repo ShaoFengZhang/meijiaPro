@@ -32,6 +32,7 @@
     color: white;
     font-size: 36rpx;
     font-weight: bold;
+    position: relative;
 }
 
 .orderBtn {
@@ -71,7 +72,7 @@
 
 /* 热门款式 */
 
-.styleList{
+.styleList {
     margin-top: 24rpx;
 }
 
@@ -81,4 +82,72 @@
     box-shadow: 0px 6rpx 12rpx 0px rgba(229, 229, 229, 1);
     vertical-align: middle;
     margin-bottom: 30rpx;
+}
+
+/* 店铺弹窗 */
+
+.storeMask {
+    width: 750rpx;
+    height: 100vh;
+    background: rgba(28, 28, 28, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.storeInfoView {
+    width: 750rpx;
+    height: 672rpx;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 64rpx 40rpx 66rpx;
+}
+
+.storeAdressView, .storeCall, .storeEnvironment {
+    display: flex;
+    justify-content: start;
+}
+
+.storeImgView {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.storeImgView image {
+    width: 244rpx;
+    height: 144rpx;
+    margin-bottom: 16rpx;
+}
+
+.orderDeails {
+    width: 88rpx;
+    height: 88rpx;
+    background-color: #f57;
+    border-radius: 50%;
+    position: absolute;
+    top: 592rpx;
+    right: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orderDeails image {
+    width: 44rpx;
+    height: 56rpx;
+}
+
+/* 授权按钮收集formId */
+
+#getUserInfoBtn {
+    width: 320rpx;
+    height: 108rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }

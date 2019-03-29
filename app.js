@@ -14,6 +14,7 @@ App({
                 _this.Bheight = res.screenHeight - res.windowHeight - res.statusBarHeight - 44;
             }
         });
+        this.orderCallFlag = true;
         LoginFunc.wxloginfnc(this);
 
         // 强制更新

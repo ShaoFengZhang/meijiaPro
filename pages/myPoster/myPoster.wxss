@@ -23,6 +23,7 @@
     line-height: 64rpx;
     overflow: hidden;
     vertical-align: middle;
+    position: relative;
 }
 
 .userCheck image {

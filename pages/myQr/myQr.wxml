@@ -27,7 +27,7 @@
             <view class='worksBox flex'>
 
                 <view class='worksView' wx:for="{{imgUrls}}" wx:key="{{index}}">
-                    <image src='{{domin}}{{item}}' style='width:340rpx;height:340rpx;' mode='center' />
+                    <image src='{{domin}}{{item.imgurl}}' style='width:340rpx;height:340rpx;' mode='aspectFit' />
                 </view>
 
             </view>

@@ -167,7 +167,7 @@ Page({
     // 地址输入
     addressInput: function(e) {
         console.log(e);
-        let txt = e.detail.value;
+        let txt = e.detail.value.slice(0,30);
         this.setData({
             storeAddress: txt,
         })

@@ -32,7 +32,26 @@ Page({
         ]
     },
 
+    formSubmit:function(e){
+        console.log(1212121, e.detail.formId);
+
+        let _this = this;
+        let collectFormIdUrl = LoginFunc.domin4 + 'formid';
+        if (e.detail.formId == 'the formId is a mock one') {
+            return;
+        }
+        let form_id = e.detail.formId;
+        let data = {
+            openid: wx.getStorageSync('user_openID'),
+            formid: form_id,
+        }
+        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
+            console.log("???????")
+        })
+    },
+
     onLoad: function(options) {
+        app.orderCallFlag = false;
         // 处理用户信息
         if (app.globalData.userInfo) {
             console.log('if');
@@ -48,6 +67,7 @@ Page({
                     userInfo: res.userInfo,
                     hasUserInfo: true
                 });
+                app.globalData.userInfo = res.userInfo;
                 let iv = res.iv;
                 let encryptedData = res.encryptedData;
                 let session_key = app.globalData.session_key;
@@ -73,19 +93,6 @@ Page({
             classScrollHeight: app.windowHeight * 750 / app.sysWidth - 416,
             // classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 416,
         });
-        if (options) {
-            console.log('SCENE', options);
-            let scene = decodeURIComponent(options.scene);
-            let shareUserUid = scene.split('&')[0];
-            let posterMid = scene.split('&')[1];
-            // if (wx.getStorageSync('user_openID')) {
-            //     app.ifPerformNavToDaZhuanPan = false;
-            //     this.navToDaZhuanPan();
-            // } else {
-            //     app.ifPerformNavToDaZhuanPan = true;
-            //     app.navToDaZhuanPan = this.navToDaZhuanPan;
-            // }
-        };
     },
 
     onShow: function() {

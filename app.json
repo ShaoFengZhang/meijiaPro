@@ -16,7 +16,8 @@
         "pages/orderGround/orderGround",
         "pages/serviceOrder/serviceOrder",
         "pages/servicePeople/servicePeople",
-        "pages/orderList/orderList"
+        "pages/orderList/orderList",
+        "pages/storeOrderList/storeOrderList"
     ],
     "permission": {
         "scope.userLocation": {

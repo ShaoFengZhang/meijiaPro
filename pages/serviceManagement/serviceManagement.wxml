@@ -21,7 +21,7 @@
                     <view class='topUpIcon' data-index='{{index}}' bindtap='addHeadImg' wx:if="{{!item.icon}}"> + </view>
                     <view class='headIcon' wx:if="{{item.icon}}">
                         <image src='{{item.icon}}' wx:if="{{item.type==1}}" />
-                        <image src='{{domin}}{{item.icon}}' wx:if="{{item.type==2}}" data-index='{{index}}' bindtap='addHeadImg'/>
+                        <image src='{{domin}}{{item.icon}}' wx:if="{{item.type!=1}}" data-index='{{index}}' bindtap='addHeadImg'/>
                     </view>
                     <input placeholder="请输入设计师名字" placeholder-class="placeClass" data-index='{{index}}' value="{{item.name}}" bindinput="nameInput"></input>
                     <button id='deleteBtn' wx:if="{{item.type==1?false:true}}" data-index='{{index}}' bindtap='deleteDesigner'>删除</button>

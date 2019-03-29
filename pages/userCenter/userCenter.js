@@ -171,5 +171,23 @@ Page({
         wx.navigateTo({
             url: '/pages/loginPage/loginPage',
         });
-    }
+    },
+
+    formSubmit: function (e) {
+        console.log(1212121, e.detail.formId);
+
+        let _this = this;
+        let collectFormIdUrl = LoginFunc.domin4 + 'formid';
+        if (e.detail.formId == 'the formId is a mock one') {
+            return;
+        }
+        let form_id = e.detail.formId;
+        let data = {
+            openid: wx.getStorageSync('user_openID'),
+            formid: form_id,
+        }
+        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
+            console.log("???????")
+        })
+    },
 })
