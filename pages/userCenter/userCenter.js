@@ -118,6 +118,7 @@ Page({
         let urlSrc = e.currentTarget.dataset.src;
         let urlid = e.currentTarget.dataset.id;
         let urlNum = e.currentTarget.dataset.num;
+        console.log(urlid);
         wx.navigateTo({
             url: `/pages/myPoster/myPoster?urlSrc=${urlSrc}&urlid=${urlid}&urlNum=${urlNum}`,
         });
@@ -185,6 +186,7 @@ Page({
         let data = {
             openid: wx.getStorageSync('user_openID'),
             formid: form_id,
+            uid: wx.getStorageSync('u_id'),
         }
         LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
             console.log("???????")

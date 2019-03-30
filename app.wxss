@@ -120,7 +120,7 @@ button::after {
 
 .Haa {
     width: 340rpx;
-    height: 648rpx;
+    height: 560rpx;
     background: rgba(0, 0, 0, 0);
     position: absolute;
     border-radius: 8rpx;
@@ -146,6 +146,66 @@ button::after {
     border-radius: 8rpx;
     top: 0;
     left: 0;
+}
+
+.Naa{
+   width: 210rpx;
+    height: 88rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;  
+}
+
+.Taa{
+    width: 172rpx;
+    height: 124rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;  
+}
+
+.uaa{
+    width: 750rpx;
+    height: 176rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;  
+}
+
+.Qaa{
+   width: 750rpx;
+    height: 124rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;  
+}
+
+.Waa{
+  width: 670rpx;
+    height: 96rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;  
+}
+
+.Paa{
+  width: 340rpx;
+    height: 540rpx;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    border-radius: 8rpx;
+    top: 0;
+    left: 0;  
 }
 
 #btn1, #btn2, #btn3, #btn4, #btn5, #Hbtn1, #Hbtn2, #Hbtn3, #Hbtn4, #Hbtn5,

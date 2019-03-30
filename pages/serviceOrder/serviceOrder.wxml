@@ -31,6 +31,12 @@
 
                     <view class='serviceItem {{item.nowFlag?"select":"noselect"}}' wx:for="{{serviceArr}}" wx:key="index" data-index='{{index}}' bindtap='srverItemClick'>
                         <text>{{item.txt}}</text>
+                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                            <button formType="submit" class='btn' id='btn1'>
+                                <view class='Naa' hover-class="hover-class">
+                                </view>
+                            </button>
+                        </form>
                     </view>
 
                 </view>
@@ -44,9 +50,15 @@
                 <!-- 中间三个服务 -->
                 <view class='threeItems flex' catchtap='ifShowTimeChoose'>
                     <text style='font-weight:bold;'>预约时间</text>
-                    <view>
+                    <view style=' position: relative;'>
                         <text style='color:#C7C7CC;'>{{timeValue.name}}</text>
                         <image src='/assets/picture/lightFlow.png' />
+                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                            <button formType="submit" class='btn' id='btn1'>
+                                <view class='Taa' hover-class="hover-class">
+                                </view>
+                            </button>
+                        </form>
                     </view>
                 </view>
 
@@ -55,6 +67,12 @@
                     <view>
                         <text style='color:#C7C7CC;'>{{designerNameObj.name}}</text>
                         <image src='/assets/picture/lightFlow.png' />
+                        <form bindsubmit="formSubmit" report-submit="{{true}}">
+                            <button formType="submit" class='btn' id='btn1'>
+                                <view class='Taa' hover-class="hover-class">
+                                </view>
+                            </button>
+                        </form>
                     </view>
                 </view>
 
@@ -139,32 +157,7 @@
                     <text>立即预约</text>
                     <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='btn' id='btn1'>
-                            <view class='aa' hover-class="hover-class">
-                                <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                    <button formType="submit" class='btn' id='btn2'>
-                                        <view class='aa' hover-class="hover-class">
-                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                <button formType="submit" class='btn' id='btn3'>
-                                                    <view class='aa' hover-class="hover-class">
-                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                            <button formType="submit" class='btn' id='btn4'>
-                                                                <view class='aa' hover-class="hover-class">
-                                                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                        <button formType="submit" class='btn' id='btn5'>
-                                                                            <view hover-class="hover-class" class='aa'>
-                                                                            </view>
-                                                                        </button>
-                                                                    </form>
-                                                                </view>
-                                                            </button>
-                                                        </form>
-                                                    </view>
-                                                </button>
-                                            </form>
-                                        </view>
-                                    </button>
-                                </form>
-                            </view>
+                            <view class='aa' hover-class="hover-class"></view>
                         </button>
                     </form>
                 </view>

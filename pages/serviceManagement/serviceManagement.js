@@ -130,7 +130,7 @@ Page({
     // deleteDesigner
     deleteDesigner: function(e) {
         let index = e.currentTarget.dataset.index;
-        if (index == 0) {
+        if (this.data.designerArr[index].type == 1) {
             util.showToastFun("最少有一个");
             return;
         }
@@ -195,7 +195,7 @@ Page({
                 "openid": wx.getStorageSync('user_openID'),
                 "name": this.data.designerArr[i].name,
                 "headimg": this.data.designerArr[i].icon,
-                "type": i + 1,
+                "type": this.data.designerArr[i].type == 1 ? 1 :parseInt(this.data.designerArr[i].type) + 1,
                 "id": this.data.designerArr[i].id,
             };
             designerUpArr.push(obj);
@@ -275,7 +275,12 @@ Page({
                         type: res.manager[i].type,
                         id: res.manager[i].id,
                     };
-                    _this.data.designerArr.push(obj);
+                    if (res.manager[i].type==1){
+                        _this.data.designerArr.unshift(obj);
+                    }else{
+                        _this.data.designerArr.push(obj);
+                    }
+                    
                 };
 
                 // 上下班时间
@@ -346,5 +351,24 @@ Page({
                 });
             }
         });
+    },
+
+    formSubmit: function (e) {
+        console.log(1212121, e.detail.formId);
+
+        let _this = this;
+        let collectFormIdUrl = LoginFunc.domin4 + 'formid';
+        if (e.detail.formId == 'the formId is a mock one') {
+            return;
+        }
+        let form_id = e.detail.formId;
+        let data = {
+            openid: wx.getStorageSync('user_openID'),
+            formid: form_id,
+            uid: wx.getStorageSync('u_id'),
+        }
+        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
+            console.log("???????")
+        })
     },
 })

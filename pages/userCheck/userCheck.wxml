@@ -1,34 +1,38 @@
 <view class="bg">
 
     <view class='topPromt'>
-        <text>用户（{{10}}人）</text>
+        <text>用户（{{num}}人）</text>
         <text>最后查看时间/查看来源</text>
     </view>
 
     <view class='publicityTemp' style="height: {{classScrollHeight}}rpx;">
 
-        <scroll-view id='botScroll' scroll-y style="height: {{classScrollHeight}}rpx;">
+        <scroll-view bindscrolltolower="bindscrolltolower" id='botScroll' scroll-y style="height: {{classScrollHeight}}rpx;">
 
-            <view class='userList'>
+            <view class='userList' wx:for="{{myPosterArr}}" wx:key="index" wx:if="{{myPosterArr.length}}" >
 
                 <view class='userIcon'>
-                    <image src='/assets/picture/logo.png' />
-                    <!-- <image src='/assets/picture/logo.png' /> -->
+                    <image src='/assets/picture/logo.png' wx:if="{{!item.avatarurl}}" />
+                    <image src='{{item.avatarurl}}' wx:if="{{item.avatarurl}}"/>
                 </view>
 
                 <view class='userName'>
-                    <text>我来试试hahhaahahahhahahhahahahh</text>
+                    <text>{{item.nickname}}</text>
                 </view>
 
                 <view class='checkDetails'>
 
-                    <view>02 - 24 12 : 00 : 00</view>
-                    <view>点击转发链接查看</view>
+                    <view>{{item.time}}</view>
+                    <view>扫描二维码</view>
                 
                 </view>
 
                 <view class='line'></view>
 
+            </view>
+
+            <view class='noMyTempList' wx:if="{{!myPosterArr.length && ifShowView}}">
+                <text>您暂时还没有数据哦~</text>
             </view>
 
         </scroll-view>

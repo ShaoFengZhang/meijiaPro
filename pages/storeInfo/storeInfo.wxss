@@ -145,6 +145,7 @@ input {
     width: 100%;
     height: 222rpx;
     background-color: #f6f6f8;
+    position: relative;
 }
 
 .nextBtn {
@@ -156,4 +157,5 @@ input {
     text-align: center;
     line-height: 96rpx;
     color: white;
+    position: relative;
 }

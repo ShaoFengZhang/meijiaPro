@@ -43,6 +43,7 @@
 }
 
 .checkDetails {
+    width:300rpx;
     height: 70rpx;
     box-sizing: border-box;
     display: flex;
@@ -64,4 +65,11 @@
     right: 0;
     bottom: 0;
     background: #EFEFEF;
+}
+
+.noMyTempList{
+    width: 100%;
+    text-align: center;
+    color: #888888;
+    font-size: 28rpx;
 }

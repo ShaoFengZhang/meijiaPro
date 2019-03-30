@@ -65,7 +65,7 @@ Page({
                 }
             })
         };
-        if (options && options.scene) {
+        if (options) {//记得改条件
             console.log('SCENE', options);
             let scene = decodeURIComponent(options.scene);
             this.posterUid = scene.split('&')[0];
@@ -99,6 +99,13 @@ Page({
         })
     },
 
+    // 查看订单
+    orderDeails:function(){
+        wx.navigateTo({
+            url: '/pages/orderList/orderList',
+        })
+    },
+
     catchtap:function(){},
 
     // 获取用户信息
@@ -114,7 +121,7 @@ Page({
             let encryptedData = e.detail.encryptedData;
             let session_key = app.globalData.session_key;
             LoginFunc.checkUserInfo(app, e.detail, iv, encryptedData, session_key);
-            thsi.serviceOrder();
+            this.serviceOrder();
         } else {
             util.showToastFun('我们需要您的授权哦~');
         }
@@ -125,10 +132,10 @@ Page({
         let _this = this;
         let serviceOrderUrl = LoginFunc.domin2 + 'order';
         let data = {
-            'uid': "5c9ad87190cf1" || this.posterUid,
+            'uid': this.posterUid == "undefined" ? "5c9ad87190cf1" : this.posterUid,
         }
         LoginFunc.wxRequest(app, serviceOrderUrl, "POST", data, function(res) {
-            console.log(res);
+            console.log(res,"服务预约");
             if (res.status == 1) {
                 wx.navigateTo({
                     url: `/pages/serviceOrder/serviceOrder?storeInfo=${JSON.stringify(res.fuwuinfo)}&storeName=${_this.data.storeInfo.shopname}&storeCall=${_this.data.storeInfo.phone}&postUid=${_this.posterUid}&data=${res.data}&timeStamp=${res.time}&storeAdress=${_this.data.storeInfo.address}`,
@@ -151,12 +158,12 @@ Page({
         let _this = this;
         let storageLookUserInfoUrl = LoginFunc.domin2 + 'look';
         let data = {
-            'newimgid': this.posterImgId,
-            'uid': this.posterUid,
+            'newimgid': this.posterImgId == undefined ? "1553842506444" : this.posterImgId,
+            'uid': this.posterUid == "undefined" ? "5c9ad87190cf1" : this.posterUid,
             "seeopenid": wx.getStorageSync('user_openID'),
         }
         LoginFunc.wxRequest(app, storageLookUserInfoUrl, "POST", data, function(res) {
-            console.log(res);
+            console.log(res,"存储查看人的信息");
         })
     },
 
@@ -166,10 +173,10 @@ Page({
         let _this = this;
         let getStoreInfoUrl = LoginFunc.domin2 + 'Landing';
         let data = {
-            'uid': "5c9ad87190cf1" || this.posterUid,
+            'uid': this.posterUid == "undefined" ? "5c9ad87190cf1" : this.posterUid,
         }
         LoginFunc.wxRequest(app, getStoreInfoUrl, "POST", data, function(res) {
-            console.log(res);
+            console.log(res,"请求店铺信息");
             if (res.status == 1) {
                 _this.setData({
                     storeInfo: res.bananer,
@@ -206,6 +213,7 @@ Page({
         let data = {
             openid: wx.getStorageSync('user_openID'),
             formid: form_id,
+            uid: wx.getStorageSync('u_id'),
         }
         LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
             console.log("???????")

@@ -40,8 +40,13 @@ Page({
     },
 
     // 查看扫码人员
-    howPeopleCheck: function() {
-        util.showToastFun('程序猿加班开发中~')
+    howPeopleCheck: function(e) {
+        let id = e.currentTarget.dataset.id;
+        let num = e.currentTarget.dataset.num;
+        wx.navigateTo({
+            url: `/pages/userCheck/userCheck?imgId=${id}&num=${num}`,
+        })
+        
     },
 
     // 保存图片
@@ -89,6 +94,7 @@ Page({
         let data = {
             openid: wx.getStorageSync('user_openID'),
             formid: form_id,
+            uid: wx.getStorageSync('u_id'),
         }
         LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
             console.log("???????")

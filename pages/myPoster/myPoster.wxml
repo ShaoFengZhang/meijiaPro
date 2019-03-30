@@ -6,39 +6,16 @@
             <image style='width:{{imgW}}rpx' mode='widthFix' src='{{imgSrc}}' />
         </view>
 
-        <view class='userCheck' bindtap='howPeopleCheck'>
+        <view class='userCheck' data-id='{{imgId}}' data-num="{{imgNum}}" bindtap='howPeopleCheck'>
             <text>{{imgNum}} 人查看过海报</text>
             <image src='/assets/picture/rightFlow.png' />
             <form bindsubmit="formSubmit" report-submit="{{true}}">
-                        <button formType="submit" class='Hbtn' id='Hbtn1'>
-                            <view class='Baa' hover-class="hover-class">
-                                <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                    <button formType="submit" class='Hbtn' id='Hbtn2'>
-                                        <view class='Baa' hover-class="hover-class">
-                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                <button formType="submit" class='Hbtn' id='Hbtn3'>
-                                                    <view class='Baa' hover-class="hover-class">
-                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                            <button formType="submit" class='Hbtn' id='Hbtn4'>
-                                                                <view class='Baa' hover-class="hover-class">
-                                                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                        <button formType="submit" class='Hbtn' id='Hbtn5'>
-                                                                            <view hover-class="hover-class" class='Baa'>
-                                                                            </view>
-                                                                        </button>
-                                                                    </form>
-                                                                </view>
-                                                            </button>
-                                                        </form>
-                                                    </view>
-                                                </button>
-                                            </form>
-                                        </view>
-                                    </button>
-                                </form>
-                            </view>
-                        </button>
-                    </form>
+                <button formType="submit" class='Hbtn' id='Hbtn1'>
+                    <view class='Baa' hover-class="hover-class">
+
+                    </view>
+                </button>
+            </form>
         </view>
 
         <view class='editorBox'>

@@ -21,46 +21,47 @@
     </view>
     <scroll-view id='botScroll' scroll-y style="height:92.6vh" bindscrolltolower="bindscrolltolower">
 
-        <view class="orderListView" wx:key="index">
+        <view class="orderListView" wx:key="index" wx:for="{{myorderArr}}" wx:if="{{myorderArr.length && ifShowView}}">
 
             <view class='userInfo'>
 
                 <view class='userIcon'>
-                    <image src='/assets/picture/logo.png' />
+                    <image src='/assets/picture/logo.png' wx:if="{{!item.icon}}" />
+                    <image src='{{item.icon}}' wx:if="{{item.icon}}" />
                 </view>
 
                 <view class='username'>
-                    <view class='userPetname' style='color:#1C1C1C;width:214rpx;'>用户呢称很差个的啊</view>
-                    <view style='color:#999999'>3月12日</view>
+                    <view class='userPetname' style='color:#1C1C1C;width:214rpx;'>{{item.name}}</view>
+                    <view style='color:#999999'>{{item.data}}</view>
                 </view>
 
-                <view class='orderTime' style='color:#1C1C1C'>14:00</view>
+                <view class='orderTime' style='color:#1C1C1C'>{{item.appointment}}</view>
 
                 <view class='orderStatus'>
-                    <image src='/assets/picture/biao.png'/>
+                    <image src='/assets/picture/biao.png' />
                     <!-- <view style='color:#999;font-size:32rpx;'>已完成</view> -->
-                    <view style='color:#FF5577;font-size:32rpx;'>进行中</view>
-                    <!-- <view style='color:#999;font-size:32rpx;'>已取消</view> -->
+                    <view style='color:#FF5577;font-size:32rpx;' wx:if="{{item.status}}">已预约</view>
+                    <view style='color:#999;font-size:32rpx;' wx:if="{{!item.status}}">已取消</view>
                 </view>
             </view>
 
             <view class='teamName'>
                 <view style='width:168rpx;color:#999;font-size:32rpx;text-align:right;'>项目名称：</view>
                 <view class='txtView'>
-                    <text style='color:#FF5577'>美甲</text>
+                    <text style='color:#FF5577'>{{item.fuwutype}}{{item.armor?"("+item.armor+")":""}}</text>
                 </view>
 
             </view>
 
             <view class='designer'>
                 <view style='width:168rpx;color:#999;text-align:right;'>设计师：</view>
-                <view class='txtView'>刘杰</view>
+                <view class='txtView'>{{item.managerid?item.managerid:"到店安排"}}</view>
             </view>
 
             <view class='userCall'>
                 <view style='width:168rpx;color:#999;text-align:right;'>客户电话：</view>
-                <view style='margin-right:246rpx;'>15891212065</view>
-                <view data-phone='15891212065' catchtap='makePhoneCall'>
+                <view style='margin-right:246rpx;'>{{item.phone}}</view>
+                <view data-phone='{{item.phone}}' catchtap='makePhoneCall'>
                     <image src='/assets/picture/callBtn.png' />
                 </view>
             </view>
@@ -68,15 +69,20 @@
             <view class='content'>
                 <view style='width:168rpx;height:48rpx;color:#999;text-align:right;'>客户留言：</view>
                 <view class='contentView' style='width:500rpx;height:96rpx;'>
-                    哈哈哈哈哈哈哈拉拉拉啊拉啦拉拉噢噢噢噢哦哦哦啦啦啦啦啦啦啦男男女女
+                    {{item.content?item.content:"暂无留言"}}
                 </view>
             </view>
 
         </view>
 
-        <!-- <view class='noMyTempList'>
-                <text>您暂时还没有数据哦~</text>
-        </view> -->
+        <view class='noMyTempList' wx:if="{{!myorderArr.length && ifShowView}}">
+            <text>您暂时还没有数据哦~</text>
+        </view>
 
     </scroll-view>
+
+    <view class='goHome' catchtap='goHome'>
+        <image src='/assets/picture/logo.png' />
+        <view style='color:000;font-size:20rpx;'>回到首页</view>
+    </view>
 </view>

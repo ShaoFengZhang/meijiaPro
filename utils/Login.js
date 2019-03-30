@@ -27,12 +27,12 @@ const wxloginfnc = (app) => {
                         app.globalData.session_key = value.data.session_key;
                         wx.setStorageSync('u_id', value.data.uid);
                         getSettingfnc(app);
-                        // if (app.orderCallFlag) {
-                        //     app.orderCallFlag = true;
-                        //     app.orderCall("12");
-                        // } else {
-                        //     app.orderCallFlag = false;
-                        // }
+                        if (app.orderCallFlag) {
+                            app.orderCallFlag = true;
+                            app.orderCall?app.orderCall("12"):null;
+                        } else {
+                            app.orderCallFlag = false;
+                        }
                     }else{
                         loginNum++;
                         if (loginNum>=3){

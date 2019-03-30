@@ -15,6 +15,14 @@
                         <text>{{item.title}}</text>
                     </view>
 
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
+                        <button formType="submit" class='Hbtn' id='Hbtn1'>
+                            <view class='Paa' hover-class="hover-class">
+
+                            </view>
+                        </button>
+                    </form>
+
                 </view>
 
             </view>

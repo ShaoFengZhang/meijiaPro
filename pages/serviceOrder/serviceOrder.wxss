@@ -94,6 +94,7 @@
     font-size: 32rpx;
     margin-bottom: 16rpx;
     margin-right: 20rpx;
+    position: relative;
 }
 
 .serviceItem:nth-child(3n+3) {

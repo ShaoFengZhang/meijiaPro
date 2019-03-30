@@ -368,7 +368,7 @@ Page({
     },
 
     onShow: function() {
-        this.managerid = 'null';
+        this.managerid = '';
         let desInfo = app.designerInfo;
         console.log(desInfo,"PPPPPPPPPPPP")
         if (desInfo && !desInfo.botCheck) {
@@ -380,7 +380,7 @@ Page({
                             value: 1,
                         },
                     });
-                    this.managerid = desInfo.usrArr[i].id
+                    this.managerid = desInfo.usrArr[i].name
                 }
             }
         };
@@ -391,7 +391,7 @@ Page({
                     value: 0,
                 },
             });
-            this.managerid = null;                  
+            this.managerid = "";                  
         };
         console.log(this.managerid)
     },
@@ -702,7 +702,7 @@ Page({
         let _this = this;
         let nowOrderClickUrl = LoginFunc.domin3 + 'doindex';
         // 卸甲补睫毛
-        let armor = (this.data.ifShowRackItems2 ? this.data.xiejia : "") + (this.data.ifShowRackItems2 ? "," : "") + (this.data.ifShowEyelashItems2 ? this.data.bujiemao : "");
+        let armor = (this.data.ifShowRackItems2 ? this.data.xiejia : "") + (this.data.ifShowEyelashItems2 ? "," : "") + (this.data.ifShowEyelashItems2 ? this.data.bujiemao : "");
         let fuwutypeArr = [];
         for (let i = 0; i < this.data.serviceArr.length; i++) {
             if (this.data.serviceArr[i].nowFlag == 1) {
@@ -807,6 +807,7 @@ Page({
         let data = {
             openid: wx.getStorageSync('user_openID'),
             formid: form_id,
+            uid: wx.getStorageSync('u_id'),
         }
         LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
             console.log("???????")

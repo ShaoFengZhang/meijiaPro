@@ -49,6 +49,7 @@
 
 .topStoreInfoView {
     margin-top: 60rpx;
+    position: relative;
 }
 
 .hotSwiper {
@@ -129,7 +130,7 @@
     background-color: #f57;
     border-radius: 50%;
     position: absolute;
-    top: 592rpx;
+    top: 0rpx;
     right: 100rpx;
     display: flex;
     align-items: center;

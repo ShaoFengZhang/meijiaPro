@@ -24,6 +24,14 @@
             <image src='/assets/picture/lightFlow.png' />
         </view>
 
+        <form bindsubmit="formSubmit" report-submit="{{true}}">
+            <button formType="submit" class='Hbtn' id='Hbtn1'>
+                <view class='Qaa' hover-class="hover-class">
+
+                </view>
+            </button>
+        </form>
+
     </view>
 
     <view class='myStore viewPublic myWorks' hover-class='hover-class' bindtap='goToMyWorks'>
@@ -38,6 +46,14 @@
         <view class='rightFlow'>
             <image src='/assets/picture/lightFlow.png' />
         </view>
+
+        <form bindsubmit="formSubmit" report-submit="{{true}}">
+            <button formType="submit" class='Hbtn' id='Hbtn1'>
+                <view class='Qaa' hover-class="hover-class">
+
+                </view>
+            </button>
+        </form>
 
     </view>
 

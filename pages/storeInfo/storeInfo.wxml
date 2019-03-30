@@ -62,7 +62,7 @@
                         </view>
 
                         <view class='myQrView' wx:key="index" wx:for="{{qrArr}}">
-                            <image src='{{domin}}{{item}}' mode='aspectFill'/>
+                            <image src='{{domin}}{{item}}' mode='aspectFill' />
                         </view>
                     </view>
 
@@ -97,7 +97,7 @@
                         </view>
 
                         <view class='myQrView' wx:key="index" wx:for="{{storeEnvironmentArr}}">
-                            <image src='{{domin}}{{item}}' mode='aspectFill'/>
+                            <image src='{{domin}}{{item}}' mode='aspectFill' />
                         </view>
                     </view>
 
@@ -106,8 +106,18 @@
             </view>
 
             <!-- nextStep -->
-            <view class='nextStepView flex'style='justify-content: center;'>
-                <view class='nextBtn' bindtap='checkInfo'>下一步</view>
+            <view class='nextStepView flex' style='justify-content: center;'>
+                <view class='nextBtn' bindtap='checkInfo'>
+                    下一步
+                    <form bindsubmit="formSubmit" report-submit="{{true}}">
+                        <button formType="submit" class='Hbtn' id='Hbtn1'>
+                            <view class='Waa' hover-class="hover-class">
+
+                            </view>
+                        </button>
+                    </form>
+                </view>
+
             </view>
 
         </scroll-view>

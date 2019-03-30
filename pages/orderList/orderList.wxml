@@ -34,8 +34,9 @@
             <view class='line'></view>
 
             <view class='orderType'>
-                <view data-ordernum='{{item.ordernum}}' data-id='{{item.id}}' style='color:#FF5577;' data-index='{{index}}' wx:if="{{item.status!=0}}" catchtap='cancelOrder'>取消预约</view>
-                <view style='color:#999999' wx:if="{{item.status==0}}">订单已取消</view>
+                <view data-ordernum='{{item.ordernum}}' data-id='{{item.id}}' style='color:#FF5577;' data-index='{{index}}' wx:if="{{item.status!=0 && item.btnType==2}}" catchtap='cancelOrder'>取消预约</view>
+                <view style='color:#999999' wx:if="{{item.status==0 && item.btnType==2}}">订单已取消</view>
+                <view style='color:#999999' wx:if="{{item.btnType==1}}">订单已过期</view>
             </view>
 
         </view>

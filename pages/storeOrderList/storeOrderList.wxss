@@ -119,3 +119,15 @@
     color: #888;
     font-size: 28rpx;
 }
+
+.goHome {
+    height: 120rpx;
+    position: absolute;
+    bottom: 80rpx;
+    right: 80rpx;
+}
+
+.goHome image {
+    width: 80rpx;
+    height: 80rpx;
+}

@@ -27,30 +27,6 @@
                         <form bindsubmit="formSubmit" report-submit="{{true}}">
                             <button formType="submit" class='btn' id='btn1'>
                                 <view class='Caa' hover-class="hover-class">
-                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                        <button formType="submit" class='btn' id='btn2'>
-                                            <view class='Caa' hover-class="hover-class">
-                                                <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                    <button formType="submit" class='btn' id='btn3'>
-                                                        <view class='Caa' hover-class="hover-class">
-                                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                <button formType="submit" class='btn' id='btn4'>
-                                                                    <view class='Caa' hover-class="hover-class">
-                                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                            <button formType="submit" class='btn' id='btn5'>
-                                                                                <view hover-class="hover-class" class='Caa'>
-                                                                                </view>
-                                                                            </button>
-                                                                        </form>
-                                                                    </view>
-                                                                </button>
-                                                            </form>
-                                                        </view>
-                                                    </button>
-                                                </form>
-                                            </view>
-                                        </button>
-                                    </form>
                                 </view>
                             </button>
                         </form>

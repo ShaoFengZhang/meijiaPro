@@ -48,10 +48,20 @@ Page({
         LoginFunc.wxRequest(app, getDataFunUrl, "POST", data, function (res) {
             console.log(res);
             if (res.status == 1) {
+                for (let i = 0; i < res.order.length; i++) {
+                    let orderTimeStep = Date.parse(res.order[i].data + " " + res.order[i].appointment);
+                    if (res.time*1000 > orderTimeStep) {
+                        res.order[i].btnType = 1;
+                    } else {
+                        res.order[i].btnType = 2;
+                    }
+
+                };
                 _this.setData({
                     myorderArr: _this.data.myorderArr.concat(res.order),
                     ifShowView: 1,
                 });
+                
                 if ((res.order.length % _this.rows) != 0 || (res.order.length / _this.rows) <= 0) {
                     _this.cangetData = false;
                 }

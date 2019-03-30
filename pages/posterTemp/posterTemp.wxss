@@ -19,6 +19,7 @@
 .posterList {
     width: 340rpx;
     margin-bottom: 40rpx;
+    position: relative;
 }
 
 .posterIcon image {

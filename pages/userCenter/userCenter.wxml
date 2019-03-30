@@ -14,6 +14,14 @@
             <view class='rightFlow' bindtap='goToMyBrand'>
                 <image src='/assets/picture/lightFlow.png' />
             </view>
+
+            <form bindsubmit="formSubmit" report-submit="{{true}}">
+                <button formType="submit" class='Hbtn' id='Hbtn1'>
+                    <view class='uaa' hover-class="hover-class">
+
+                    </view>
+                </button>
+            </form>
         </view>
 
         <view class='myPosterTxt userViewItem'>
@@ -28,7 +36,7 @@
 
             <view class='myTempBox' wx:if="{{myPosterArr.length}}">
 
-                <view bindtap='tempClick' data-num="{{item.num || 0}}" data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" wx:for="{{myPosterArr}}" wx:key="index">
+                <view bindtap='tempClick' data-num="{{item.num || 0}}" data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" data-id="{{item.id}}" wx:for="{{myPosterArr}}" wx:key="index">
 
                     <view class='myTempIcon'>
                         <image src='{{srcDomin}}{{item.newimg}}' />
@@ -48,36 +56,13 @@
                     <form bindsubmit="formSubmit" report-submit="{{true}}">
                         <button formType="submit" class='Hbtn' id='Hbtn1'>
                             <view class='Haa' hover-class="hover-class">
-                                <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                    <button formType="submit" class='Hbtn' id='Hbtn2'>
-                                        <view class='Haa' hover-class="hover-class">
-                                            <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                <button formType="submit" class='Hbtn' id='Hbtn3'>
-                                                    <view class='Haa' hover-class="hover-class">
-                                                        <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                            <button formType="submit" class='Hbtn' id='Hbtn4'>
-                                                                <view class='Haa' hover-class="hover-class">
-                                                                    <form bindsubmit="formSubmit" report-submit="{{true}}">
-                                                                        <button formType="submit" class='Hbtn' id='Hbtn5'>
-                                                                            <view hover-class="hover-class" class='Haa'>
-                                                                            </view>
-                                                                        </button>
-                                                                    </form>
-                                                                </view>
-                                                            </button>
-                                                        </form>
-                                                    </view>
-                                                </button>
-                                            </form>
-                                        </view>
-                                    </button>
-                                </form>
+
                             </view>
                         </button>
                     </form>
 
                 </view>
-                
+
             </view>
 
             <view class='noMyTempList' wx:if="{{!myPosterArr.length && ifShowView}}">

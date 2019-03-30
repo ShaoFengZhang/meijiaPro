@@ -37,6 +37,7 @@
     line-height: 96rpx;
     color: #fff;
     margin-top: 40rpx;
+    position: relative;
 }
 
 .popUpWinBox, .changePicBox {

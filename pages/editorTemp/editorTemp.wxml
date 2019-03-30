@@ -14,6 +14,13 @@
 
         <view class='saveBtn' bindtap='savePicture'>
             <text>保存图片</text>
+            <form bindsubmit="formSubmit" report-submit="{{true}}">
+                <button formType="submit" class='Hbtn' id='Hbtn1'>
+                    <view class='Waa' hover-class="hover-class">
+
+                    </view>
+                </button>
+            </form>
         </view>
 
     </view>

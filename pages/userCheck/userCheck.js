@@ -8,10 +8,18 @@ Page({
     },
 
     onLoad: function (options) {
+        console.log(options)
         this.setData({
             // classScrollHeight: app.windowHeight * 750 / app.sysWidth - 416,
             classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 64,
         });
+        if (options && options.imgId){
+            this.setData({
+                imgId: options.imgId,
+                num: options.num,
+            })
+        }
+
         this.urlPage = 1;
         this.rows = 6;
         this.cangetData = true;
@@ -26,8 +34,11 @@ Page({
 
     },
 
-    onPullDownRefresh: function () {
-
+    bindscrolltolower: function () {
+        if (this.cangetData) {
+            this.urlPage++;
+            this.getDataFun();
+        }
     },
 
     // 分享
@@ -43,9 +54,9 @@ Page({
     // 请求数据
     getDataFun: function () {
         let _this = this;
-        let getDataFunUrl = LoginFunc.domin + 'doPoster';
+        let getDataFunUrl = LoginFunc.domin + 'getcensus';
         let data = {
-            'openid': wx.getStorageSync('user_openID'),
+            'newimgid': this.data.imgId,
             "page": this.urlPage,
             "rows": this.rows,
             "uid": wx.getStorageSync('u_id'),
@@ -55,10 +66,10 @@ Page({
             console.log(res);
             if (res.status == 1) {
                 _this.setData({
-                    myPosterArr: _this.data.myPosterArr.concat(res.poster),
+                    myPosterArr: _this.data.myPosterArr.concat(res.census),
                     ifShowView: 1,
                 });
-                if ((res.poster.length % _this.rows) != 0 || (res.poster.length / _this.rows) <= 0) {
+                if ((res.census.length % _this.rows) != 0 || (res.census.length / _this.rows) <= 0) {
                     _this.cangetData = false;
                 }
             }

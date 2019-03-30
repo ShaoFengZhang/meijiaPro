@@ -21,7 +21,7 @@ Page({
             myorderArr: [],
             ifShowView: 0,
         });
-        // this.getTodyDataFun();
+        this.getTodyDataFun();
     },
 
     onShow: function() {
@@ -62,13 +62,12 @@ Page({
         if (index == 0) {
             this.getTodyDataFun();
         } else if (index == 1) {
-            this.getTomorrowDataFun();
+            this.getTomorrowDataFun(this.formatTime(this.data.timeStemp,1));
         } else if (index == 2) {
-            this.getTomorrowDataFun();
+            this.getTomorrowDataFun(this.formatTime(this.data.timeStemp, 2));
         } else if (index == 3) {
-            this.getTodyDataFun();
+            this.getGuoQiDataFun();
         }
-        this.getDataFun();
     },
 
     makePhoneCall: function(e) {
@@ -91,36 +90,72 @@ Page({
             console.log(res);
             if (res.status == 1) {
                 _this.setData({
-                    myorderArr: _this.data.myorderArr.concat(res.order),
+                    myorderArr: _this.data.myorderArr.concat(res.shoporder),
                     ifShowView: 1,
+                    timeStemp: res.time*1000,
                 });
-                if ((res.order.length % _this.rows) != 0 || (res.order.length / _this.rows) <= 0) {
+                if ((res.shoporder.length % _this.rows) != 0 || (res.shoporder.length / _this.rows) <= 0) {
                     _this.cangetData = false;
                 }
+            }else{
+                _this.setData({
+                    ifShowView: 1,
+                });
             }
         })
     },
 
     // 请求明后天数据
-    getTomorrowDataFun: function() {
+    getTomorrowDataFun: function(time) {
         let _this = this;
         let getTomorrowDataFunUrl = LoginFunc.domin3 + 'shopmorders';
         let data = {
             "uid": this.uid,
             "page": this.urlPage,
             "rows": this.rows,
-            "data": ""
+            "date": time
         }
         LoginFunc.wxRequest(app, getTomorrowDataFunUrl, "POST", data, function(res) {
             console.log(res);
             if (res.status == 1) {
                 _this.setData({
-                    myorderArr: _this.data.myorderArr.concat(res.order),
+                    myorderArr: _this.data.myorderArr.concat(res.shoporder),
                     ifShowView: 1,
                 });
-                if ((res.order.length % _this.rows) != 0 || (res.order.length / _this.rows) <= 0) {
+                if ((res.shoporder.length % _this.rows) != 0 || (res.shoporder.length / _this.rows) <= 0) {
                     _this.cangetData = false;
                 }
+            }else{
+                _this.setData({
+                    ifShowView: 1,
+                });
+            }
+        })
+    },
+
+    // 请求过期的数据
+    getGuoQiDataFun: function () {
+        let _this = this;
+        let getGuoQiDataFunUrl = LoginFunc.domin3 + 'getguoqi';
+        let data = {
+            "uid": this.uid,
+            "page": this.urlPage,
+            "rows": this.rows,
+        }
+        LoginFunc.wxRequest(app, getGuoQiDataFunUrl, "POST", data, function (res) {
+            console.log(res);
+            if (res.status == 1) {
+                _this.setData({
+                    myorderArr: _this.data.myorderArr.concat(res.shoporder),
+                    ifShowView: 1,
+                });
+                if ((res.shoporder.length % _this.rows) != 0 || (res.shoporder.length / _this.rows) <= 0) {
+                    _this.cangetData = false;
+                }
+            }else{
+                _this.setData({
+                    ifShowView: 1,
+                }); 
             }
         })
     },
@@ -144,5 +179,11 @@ Page({
         let time = year+"-"+(mon > 9 ? mon : `0${mon}`) + "-" + (hou > 9 ? hou : `0${hou}`);
         return time;
     },
+
+    goHome:function(){
+        wx.switchTab({
+            url: '/pages/index/index'
+        })
+    }
 
 })
