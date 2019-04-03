@@ -1,23 +1,7 @@
 <view class="bg">
 
-    <view class="topView">
-
-        <view class='myQrTxt'>
-            <text>作品集</text>
-        </view>
-
-        <view class='popUpView'>
-
-            <view class='popUpBtn' bindtap='upLoadImage'>
-
-                <view class='addIcon'> + </view>
-
-                <view class='upText'>
-                    <text>上传最新作品</text>
-                </view>
-            </view>
-        </view>
-
+    <view class="topView" bindtap='upLoadImage'>
+        <text>点击上传最新作品</text>
     </view>
 
     <view class='worksList'>
@@ -27,7 +11,7 @@
             <view class='worksBox flex'>
 
                 <view class='worksView' wx:for="{{imgUrls}}" wx:key="{{index}}">
-                    <image src='{{domin}}{{item.imgurl}}' style='width:340rpx;height:340rpx;' mode='aspectFit' />
+                    <image src='{{domin}}{{item.imgurl}}' style='width:340rpx;height:560rpx;' mode='scaleToFill' />
                 </view>
 
             </view>
@@ -37,7 +21,7 @@
             </view>
 
         </scroll-view>
-        
+
     </view>
 
 

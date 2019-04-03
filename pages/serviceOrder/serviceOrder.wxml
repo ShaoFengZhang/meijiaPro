@@ -49,7 +49,7 @@
 
                 <!-- 中间三个服务 -->
                 <view class='threeItems flex' catchtap='ifShowTimeChoose'>
-                    <text style='font-weight:bold;'>预约时间</text>
+                    <text>预约时间</text>
                     <view style=' position: relative;'>
                         <text style='color:#C7C7CC;'>{{timeValue.name}}</text>
                         <image src='/assets/picture/lightFlow.png' />
@@ -63,7 +63,7 @@
                 </view>
 
                 <view class='threeItems flex' catchtap='chooseDesigner'>
-                    <text style='font-weight:bold;'>设计师</text>
+                    <text>设计师</text>
                     <view>
                         <text style='color:#C7C7CC;'>{{designerNameObj.name}}</text>
                         <image src='/assets/picture/lightFlow.png' />
@@ -86,7 +86,7 @@
 
                 <!-- 下边两个服务 -->
                 <view class='threeItems flex' wx:if="{{ifShowRackItems && ifShowRackItems2}}">
-                    <text style='font-weight:bold;'>卸甲</text>
+                    <text>卸甲</text>
                     <view>
                         <radio-group class="radio-group" bindchange="radioChange1">
                             <label class="radio" wx:for="{{rackItems}}" wx:key="index">
@@ -98,7 +98,7 @@
                 </view>
 
                 <view class='threeItems flex' wx:if="{{ifShowEyelashItems && ifShowEyelashItems2}}">
-                    <text style='font-weight:bold;'>补睫毛</text>
+                    <text>补睫毛</text>
                     <view>
                         <radio-group class="radio-group" bindchange="radioChange2">
                             <label class="radio" wx:for="{{eyelashItems}}" wx:key="index">
@@ -115,7 +115,7 @@
             <view class='messageView publicView'>
 
                 <view class='messageTxt'>
-                    <text style='font-size:32rpx;font-weight:bold;color:#1C1C1C;'>给店主留言</text>
+                    <text style='font-size:32rpx;color:#1C1C1C;'>给店主留言</text>
                 </view>
 
                 <view class='txtArea flex'>

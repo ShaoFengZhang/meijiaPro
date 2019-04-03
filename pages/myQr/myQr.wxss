@@ -1,81 +1,35 @@
 .bg {
     background-color: #f6f6f8;
-}
-
-.topView {
-    width: 100%;
-    height: 360rpx;
-    background: #fff;
-}
-
-.myQrTxt {
-    width: 100%;
-    height: 116rpx;
-    line-height: 116rpx;
-    box-sizing: border-box;
-    font-size: 36rpx;
-    font-weight: bold;
-    color: #000;
-    letter-spacing: 0;
-    padding: 0 40rpx;
-}
-
-.popUpView {
-    width: 100%;
-    height: 204rpx;
-    box-sizing: border-box;
-    padding: 0 40rpx;
-    display: flex;
-    justify-content: start;
     overflow: hidden;
 }
 
-.popUpBtn {
-    width: 192rpx;
-    height: 204rpx;
-    box-sizing: border-box;
-    border: 2rpx dashed #d9d9d9;
-    padding-top: 50rpx;
-    margin: 0 auto;
-}
-
-.addIcon {
-    color: rgba(0, 0, 0, 0.43);
-    font-size: 80rpx;
+.topView {
+    width: 670rpx;
+    height: 96rpx;
+    background: rgba(28, 28, 28, 1);
+    border-radius: 48rpx;
+    margin: 32rpx auto 0;
+    font-size: 36rpx;
+    color: #fff;
+    line-height: 96rpx;
     text-align: center;
-    line-height: 0rpx;
+    font-weight: bold;
 }
 
-.upText {
-    text-align: center;
-    font-size: 24rpx;
-    color: rgba(0, 0, 0, 0.65);
-    margin-top: 46rpx;
-}
-
-.myQrView {
-    border: 2rpx dashed #d9d9d9;
-    margin-left: 20rpx;
-}
-
-.myQrView, .myQrView image {
-    width: 204rpx;
-    height: 204rpx;
-}
-
-#botScroll{
+#botScroll {
     box-sizing: border-box;
     padding: 24rpx;
 }
 
-.worksView image{
+.worksView image {
     vertical-align: middle;
     margin-bottom: 20rpx;
+    border-radius: 16rpx;
 }
 
-.noMyTempList{
+.noMyTempList {
     width: 100%;
     text-align: center;
-    color: #888888;
+    color: #888;
     font-size: 28rpx;
 }

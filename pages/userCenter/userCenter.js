@@ -14,9 +14,10 @@ Page({
     },
 
     onLoad: function(options) {
+        this.topNum = this.topNum ? this.topNum:null;
         this.setData({
-            ScrollHeight: app.windowHeight * 750 / app.sysWidth - 262,
-            // ScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 416,
+            ScrollHeight: app.windowHeight * 750 / app.sysWidth - 300,
+            // ScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 300,
         });
         // 处理用户信息
         if (app.globalData.userInfo) {
@@ -44,12 +45,18 @@ Page({
     },
 
     onShow: function() {
+        this.newnum=null;
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             });
-        }
+        };
+        this.bellFun();
+    },
+
+    onHide:function(){
+        this.topNum = this.newnum;
     },
 
     onTabItemTap: function() {
@@ -61,6 +68,12 @@ Page({
             ifShowView: 0,
         });
         this.getDataFun();
+    },
+
+    gotoStoreOrder:function(){
+        wx.navigateTo({
+            url: '/pages/storeOrderList/storeOrderList',
+        })
     },
 
     // 分享
@@ -105,7 +118,7 @@ Page({
                     myPosterArr: _this.data.myPosterArr.concat(res.posters),
                     ifShowView: 1,
                 });
-                if ((res.posters.length % _this.rows) != 0 || (res.posters.length / _this.rows) <= 0) {
+                if (res.posters.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }
@@ -118,9 +131,10 @@ Page({
         let urlSrc = e.currentTarget.dataset.src;
         let urlid = e.currentTarget.dataset.id;
         let urlNum = e.currentTarget.dataset.num;
+        let urlType = e.currentTarget.dataset.type;
         console.log(urlid);
         wx.navigateTo({
-            url: `/pages/myPoster/myPoster?urlSrc=${urlSrc}&urlid=${urlid}&urlNum=${urlNum}`,
+            url: `/pages/myPoster/myPoster?urlSrc=${urlSrc}&urlid=${urlid}&urlNum=${urlNum}&urlType=${urlType}`,
         });
     },
 
@@ -174,6 +188,26 @@ Page({
         });
     },
 
+    // bellFun
+    bellFun:function(){
+
+        let _this = this;
+        let bellFunUrl = LoginFunc.domin3 + 'getordernum';
+        let data = {
+            uid: wx.getStorageSync('u_id'),
+        }
+        LoginFunc.wxRequest(app, bellFunUrl, "POST", data, function (res) {
+            console.log(res);
+            if(res.status==1){
+                _this.newnum=res.num;
+                _this.setData({
+                    ifBell: (_this.newnum == _this.topNum || res.num==0 )?false:true,
+                })
+            }
+        })
+    },
+
+    // 收集Formid
     formSubmit: function (e) {
         console.log(1212121, e.detail.formId);
 

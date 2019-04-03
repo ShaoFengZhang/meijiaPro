@@ -100,6 +100,10 @@ const checkUserInfo = (app, res, iv, encryptedData, session_key) => {
 };
 
 const requestURl = (app, url, method, data, cb) => {
+    wx.showLoading({
+        title: 'Loading',
+        mask:true,
+    })
     wx.request({
         url: url,
         header: {
@@ -109,11 +113,13 @@ const requestURl = (app, url, method, data, cb) => {
         data: data,
         method: method,
         success: function(resdata) {
+            wx.hideLoading();
             // console.log(url, resdata);
             app.netBlock = 0;
             cb(resdata.data);
         },
         fali: function(res) {
+            wx.hideLoading();
             console.log("requestFali", res)
             wx.showModal({
                 title: '提示',

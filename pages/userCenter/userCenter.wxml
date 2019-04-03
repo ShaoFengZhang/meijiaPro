@@ -24,8 +24,13 @@
             </form>
         </view>
 
-        <view class='myPosterTxt userViewItem'>
+        <view class='myPosterTxt userViewItem flex'>
             <text>我的海报</text>
+            <view class='bellView' catchtap='gotoStoreOrder'>
+                <image src='/assets/picture/bell.png'/>
+                <text wx:if="{{ifBell}}"></text>
+            </view>
+
         </view>
 
     </view>
@@ -36,7 +41,7 @@
 
             <view class='myTempBox' wx:if="{{myPosterArr.length}}">
 
-                <view bindtap='tempClick' data-num="{{item.num || 0}}" data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" data-id="{{item.id}}" wx:for="{{myPosterArr}}" wx:key="index">
+                <view bindtap='tempClick' data-type='{{item.type}}' data-num="{{item.num || 0}}" data-src='{{srcDomin}}{{item.newimg}}' class='myTempList' data-mid="{{item.mid}}" data-id="{{item.id}}" wx:for="{{myPosterArr}}" wx:key="index">
 
                     <view class='myTempIcon'>
                         <image src='{{srcDomin}}{{item.newimg}}' />
@@ -46,7 +51,11 @@
 
                         <view class='myTempDetail'>
                             <text style='font-size:28rpx;'>查看人数：{{item.num || 0}}</text>
-                            <text style='font-size:20rpx;'>产品宣传</text>
+                            <text style='font-size:20rpx;' wx:if="{{item.type==5}}">产品宣传</text>
+                            <text style='font-size:20rpx;' wx:if="{{item.type==1}}">服务预约</text>
+                            <text style='font-size:20rpx;' wx:if="{{item.type==2}}">用户维护</text>
+                            <text style='font-size:20rpx;' wx:if="{{item.type==4}}">用户问候</text>
+                            <text style='font-size:20rpx;' wx:if="{{item.type==3}}">朋友圈</text>
                         </view>
 
                         <view class='point'> ... </view>

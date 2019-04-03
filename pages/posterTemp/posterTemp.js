@@ -16,7 +16,7 @@ Page({
             this.tempType = options.type;
             this.tempTitle = options.title;
             wx.setNavigationBarTitle({
-                title: this.tempTitle + '制作模板'
+                title: '选择海报'
             })
         };
         this.urlPage = 1;
@@ -62,7 +62,7 @@ Page({
         let _this = this;
         let getDataFunUrl = LoginFunc.domin + 'dotype';
         let data = {
-            type: this.tempType,
+            type: parseInt(this.tempType),
             "page": this.urlPage,
             "rows": this.rows,
         }
@@ -75,7 +75,7 @@ Page({
                 _this.setData({
                     posterArr: _this.data.posterArr.concat(res.images),
                 });
-                if ((res.images.length % _this.rows) != 0) {
+                if (res.images.length <_this.rows) {
                     _this.cangetData = false;
                 }
             }
@@ -88,7 +88,7 @@ Page({
         let urlSrc = e.currentTarget.dataset.src;
         let urlID = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: `/pages/editorTemp/editorTemp?urlSrc=${urlSrc}&urlID=${urlID}`,
+            url: `/pages/editorTemp/editorTemp?urlSrc=${urlSrc}&urlID=${urlID}&type=${this.tempType}`,
         });
     },
 

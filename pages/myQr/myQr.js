@@ -14,8 +14,8 @@ Page({
 
     onLoad: function(options) {
         this.setData({
-            // ScrollHeight: app.windowHeight * 750 / app.sysWidth - 262,
-            scrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 360,
+            // scrollHeight: app.windowHeight * 750 / app.sysWidth - 128,
+            scrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 128,
         });
         this.getData();
     },

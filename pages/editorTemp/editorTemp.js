@@ -7,19 +7,21 @@ Page({
         showPicOptions: false,
         showPopUpQrView: false,
         nowTempSrc: '',
-        myTempArr: ['/assets/picture/logo.png','/assets/picture/logo.png', '/assets/picture/logo.png','/assets/picture/logo.png','/assets/picture/logo.png'],
+        myTempArr: [],
     },
 
     onLoad: function(options) {
         console.log(options);
         if (options && options.urlID) {
             this.mid = options.urlID;
+            this.posterType = options.type;
             this.setData({
                 nowTempSrc: options.urlSrc
             })
         };
         this.ifWithQr = true;
         this.getPosterQrTemp();
+        this.getHaveQr();
     },
 
     onShow: function() {
@@ -165,6 +167,59 @@ Page({
             showPopUpQrView: !_this.data.showPopUpQrView,
             showPicOptions: false,
         });
+        util.showLoadFun('正在上传');
+
+        wx.getImageInfo({
+            src: src,
+            success(value) {
+                console.log(value.path);
+                wx.uploadFile({
+                    url: LoginFunc.domin + 'doUploadImage',
+                    filePath: value.path,
+                    name: 'image',
+                    formData: {
+                        'openid': wx.getStorageSync('user_openID'),
+                        'mid': _this.mid,
+                    },
+                    header: {
+                        "Content-Type": "multipart/form-data"
+                    },
+                    success: function (res) {
+                        console.log(res);
+                        wx.hideLoading();
+                        if (res.data) {
+                            var data = JSON.parse(res.data);
+                            if (data.status == 1) {
+                                _this.setData({
+                                    showPicOptions: false,
+                                    nowTempSrc: LoginFunc.srcDomin + data.newimg,
+                                    nowNewImg: data.newimg,
+                                    oldimgSrc: data.oldimage,
+                                    newimgid: data.newimgid,
+                                })
+                            } else {
+                                util.showToastFun("上传失败,重新上传")
+                            }
+                        } else {
+                            util.showToastFun("上传失败,重新上传")
+                        }
+
+                    },
+                    fail: function (res) {
+                        wx.hideLoading();
+                        wx.showModal({
+                            title: '错误提示',
+                            content: '上传图片失败',
+                            showCancel: false,
+                            success: function (res) { }
+                        })
+                    }
+                });
+            }
+        });
+        return;
+
+        
     },
 
     // 使用海报而二维码
@@ -184,14 +239,15 @@ Page({
             'openid': wx.getStorageSync('user_openID'),
             'mid': _this.mid,
             "uid": wx.getStorageSync('u_id'),
+            "type": parseInt(this.posterType),
         }
         LoginFunc.wxRequest(app, getPosterQrTempUrl, "POST", data, function(res) {
             if (res.status == 1) {
                 _this.setData({
                     posterQrTempSrc: LoginFunc.srcDomin + res.newimg,
                     postNewImg: res.newimg,
-                    oldimgSrc: res.oldimage,
-                    newimgid: res.newimgid,
+                    oldimgPostSrc: res.oldimage,
+                    newimgPostid: res.newimgid,
                 })
             } else {
                 // _this.getPosterQrTemp();
@@ -207,9 +263,10 @@ Page({
             'openid': wx.getStorageSync('user_openID'),
             'id': _this.mid,
             "newimg": this.ifWithQr ? `${this.data.postNewImg}` : `${_this.data.nowNewImg}`,
-            "oldimage": this.data.oldimgSrc,
-            "newimgid": this.data.newimgid,
+            "oldimage": this.ifWithQr ? this.data.oldimgPostSrc:this.data.oldimgSrc,
+            "newimgid": this.ifWithQr ? this.data.newimgPostid:this.data.newimgid,
             "uid": wx.getStorageSync('u_id'),
+            "type": parseInt(this.posterType),
         }
         LoginFunc.wxRequest(app, saveImageUrl, "POST", data, function(res) {
             if (res.status == 1) {
@@ -219,6 +276,30 @@ Page({
                 })
             } else {
                 // _this.getPosterQrTemp();
+            }
+        })
+    },
+
+    // 拉取已经长传的二维码
+    getHaveQr:function(){
+        let _this = this;
+        let getHaveQrUrl = LoginFunc.domin2 + 'doindex';
+        let data = {
+            "uid": wx.getStorageSync('u_id'),
+        }
+        LoginFunc.wxRequest(app, getHaveQrUrl, "POST", data, function (res) {
+            console.log(res);
+            if (res.status == 1) {
+                let imgArr = res.shop.code.split("~");
+                for (let i = 0; i < imgArr.length;i++){
+                    imgArr[i] = LoginFunc.srcDomin + imgArr[i];
+                }
+                console.log(imgArr);
+                _this.setData({
+                    myTempArr: imgArr,
+                })
+            } else {
+                
             }
         })
     },

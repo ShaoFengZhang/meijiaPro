@@ -15,7 +15,8 @@ Page({
             this.setData({
                 imgSrc: options.urlSrc,
                 imgNum: options.urlNum,
-                imgId: options.urlid
+                imgId: options.urlid,
+                imgType: options.urlType,
             })
         }
 
@@ -31,8 +32,20 @@ Page({
 
     // 分享
     onShareAppMessage: function(e) {
-        let title = "点击查看";
-        let path = `/pages/index/index`;
+        if (this.data.imgType == 1) {
+            var path = `/pages/orderGround/orderGround?uid=${wx.getStorageSync('u_id')}&posterImgId=${this.data.imgId}`;
+            var title = "点击立即预约";
+
+        } else if (this.data.imgType == 2) {
+            var path = `/pages/index/index?uid=${wx.getStorageSync('u_id')}&posterImgId=${this.data.imgId}`
+        } else if (this.data.imgType == 3) {
+            var path = `/pages/index/index?uid=${wx.getStorageSync('u_id')}&posterImgId=${this.data.imgId}`
+        } else if (this.data.imgType == 4) {
+            var path = `/pages/index/index?uid=${wx.getStorageSync('u_id')}&posterImgId=${this.data.imgId}`
+        } else if (this.data.imgType == 5) {
+            var path = `/pages/index/index?uid=${wx.getStorageSync('u_id')}&posterImgId=${this.data.imgId}`;
+            var title = "点击查看";
+        }
         return {
             title: title,
             path: path,
@@ -43,10 +56,23 @@ Page({
     howPeopleCheck: function(e) {
         let id = e.currentTarget.dataset.id;
         let num = e.currentTarget.dataset.num;
+        if (this.data.imgType == 1) {
+            var navUrl = `/pages/storeOrderList/storeOrderList?ifShowGoHome = 123`
+
+        } else if (this.data.imgType == 2) {
+
+        } else if (this.data.imgType == 3) {
+
+        } else if (this.data.imgType == 4) {
+
+        } else if (this.data.imgType == 5) {
+            var navUrl = `/pages/userCheck/userCheck?imgId=${id}&num=${num}`
+        }
         wx.navigateTo({
-            url: `/pages/userCheck/userCheck?imgId=${id}&num=${num}`,
+            // url: `/pages/userCheck/userCheck?imgId=${id}&num=${num}`,
+            url: `${navUrl}`,
         })
-        
+
     },
 
     // 保存图片
@@ -82,7 +108,7 @@ Page({
         })
     },
 
-    formSubmit: function (e) {
+    formSubmit: function(e) {
         console.log(1212121, e.detail.formId);
 
         let _this = this;
@@ -96,7 +122,7 @@ Page({
             formid: form_id,
             uid: wx.getStorageSync('u_id'),
         }
-        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
+        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function(res) {
             console.log("???????")
         })
     },

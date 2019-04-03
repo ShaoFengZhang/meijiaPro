@@ -69,7 +69,7 @@ Page({
                     myPosterArr: _this.data.myPosterArr.concat(res.census),
                     ifShowView: 1,
                 });
-                if ((res.census.length % _this.rows) != 0 || (res.census.length / _this.rows) <= 0) {
+                if (res.census.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }

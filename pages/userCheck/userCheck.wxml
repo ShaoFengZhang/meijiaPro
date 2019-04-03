@@ -11,6 +11,8 @@
 
             <view class='userList' wx:for="{{myPosterArr}}" wx:key="index" wx:if="{{myPosterArr.length}}" >
 
+                <view class='userOrder'>{{myPosterArr.length-index}}</view>
+
                 <view class='userIcon'>
                     <image src='/assets/picture/logo.png' wx:if="{{!item.avatarurl}}" />
                     <image src='{{item.avatarurl}}' wx:if="{{item.avatarurl}}"/>

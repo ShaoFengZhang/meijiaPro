@@ -87,7 +87,7 @@ Page({
                     imgArr: _this.data.imgArr.concat(res.images),
                     loadingCount: res.images.length,
                 });
-                if ((res.images.length % _this.rows) != 0) {
+                if (res.images.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }

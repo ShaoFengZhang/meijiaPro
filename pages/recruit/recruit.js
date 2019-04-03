@@ -10,7 +10,10 @@ Page({
     },
 
     onLoad: function(options) {
-
+        this.setData({
+            // classScrollHeight: app.windowHeight * 750 / app.sysWidth - 158,
+            classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 158,
+        });
     },
 
     onShow: function() {

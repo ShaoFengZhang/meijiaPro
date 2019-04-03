@@ -80,7 +80,7 @@
                         </view>
 
                         <view class='noMyTempList' wx:if="{{!myTempArr.length}}">
-                            <text>您暂时还没有数据哦~</text>
+                            <text>您暂时还没有上传二维码~</text>
                         </view>
 
                     </view>

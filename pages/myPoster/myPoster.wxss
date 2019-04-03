@@ -8,6 +8,13 @@
 
 .posterImg {
     margin: 0 auto;
+    border-radius: 16rpx;
+    box-shadow: 12rpx 10rpx 12rpx 0rpx rgba(0, 0, 0, 0.09);
+}
+
+.posterImg image{
+    border-radius: 16rpx;
+    vertical-align: middle;
 }
 
 .userCheck {
@@ -53,11 +60,11 @@
     height: 120rpx;
 }
 
-.shareBtn{
+.shareBtn {
     position: relative;
 }
 
-#shareButton{
+#shareButton {
     width: 120rpx;
     height: 120rpx;
     position: absolute;

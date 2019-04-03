@@ -467,7 +467,7 @@ Page({
         date.setDate(date.getDate() + a);
         let mon = date.getMonth() + 1;
         let hou = date.getDate();
-        let time = (mon > 9 ? mon : `0${mon}`) + "-" + (hou > 9 ? hou : `0${hou}`);
+        let time = (mon > 9 ? mon : `0${mon}`) + "/" + (hou > 9 ? hou : `0${hou}`);
         let weekDay = date.getDay();
         let dayObj = {
             value: null,
@@ -513,7 +513,7 @@ Page({
         let time = new Date(data);
         const month = time.getMonth() + 1;
         const day = time.getDate();
-        return [month, day].map(util.formatNumber).join('-');
+        return [month, day].map(util.formatNumber).join('/');
     },
 
     // 选择那一天
@@ -711,7 +711,8 @@ Page({
         }
         let fuwutype = fuwutypeArr.join(',');
         let data = {
-            'uid': "5c9ad87190cf1" || this.postUid,
+            'uid': this.data.postUid || "",
+            // 'uid': "5c9ad87190cf1",
             "managerid": this.managerid ? this.managerid : '',
             "data":this.data.whichDay,
             "appointment": this.data.timeValue.name,
@@ -723,6 +724,7 @@ Page({
             "fuwutype": fuwutype,
             "shopname": this.data.storeName,
             "address": this.data.storeAdress,
+            "userIcon": app.globalData.userInfo?app.globalData.userInfo.avatarUrl:"",
         }
         LoginFunc.wxRequest(app, nowOrderClickUrl, "POST", data, function(res) {
             console.log(res);

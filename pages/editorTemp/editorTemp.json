@@ -1,6 +1,7 @@
 {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "编辑模板",
+    "navigationBarTitleText": "生成海报",
     "backgroundColor": "#f6f6f8",
-    "disableScroll": true
+    "disableScroll": true,
+    "navigationBarBackgroundColor": "#f2f2f2"
 }

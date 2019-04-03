@@ -12,7 +12,7 @@ Page({
         classiy: [{
                 icon: '/assets/index/01.png',
                 name: '产品宣传海报',
-                type: 1,
+                type: 5,
             },
             {
                 icon: '/assets/index/02.png',
@@ -20,20 +20,27 @@ Page({
                 type: 2,
             },
             {
-                icon: '/assets/index/03.png',
-                name: '朋友圈装修',
-                type: 3,
+                icon: '/assets/index/05.png',
+                name: '服务预约',
+                type: 1,
             },
+            
             {
                 icon: '/assets/index/04.png',
                 name: '早晚安问候',
                 type: 4,
             },
+
+            // {
+            //     icon: '/assets/index/03.png',
+            //     name: '朋友圈装修',
+            //     type: 3,
+            // },
         ]
     },
 
     onLoad: function(options) {
-        app.orderCallFlag = false;
+        // app.orderCallFlag = false;
         // 处理用户信息
         if (app.globalData.userInfo) {
             console.log('if');
@@ -75,6 +82,27 @@ Page({
             classScrollHeight: app.windowHeight * 750 / app.sysWidth - 416,
             // classScrollHeight: (app.windowHeight + app.Bheight) * 750 / app.sysWidth - 416,
         });
+
+        if (options && options.scene) {//记得改条件
+            console.log('SCENE', options);
+            let scene = decodeURIComponent(options.scene);
+            this.posterUid = scene.split('&')[0];
+            this.posterImgId = scene.split('&')[1];
+            if (wx.getStorageSync('user_openID') && !app.orderCallFlag) {
+                this.orderCall("34");
+            };
+            app.orderCall = this.orderCall;
+            this.getStoreInfo();
+        };
+
+        if (options && options.uid) {
+            this.posterUid = options.uid;
+            this.posterImgId = options.posterImgId;
+            if (wx.getStorageSync('user_openID') && !app.orderCallFlag) {
+                this.orderCall("34");
+            };
+            app.orderCall = this.orderCall;
+        }
     },
 
     onShow: function() {
@@ -83,7 +111,17 @@ Page({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             });
-        }
+        };
+        wx.getSystemInfo({
+            success(res) {
+                // console.log(res);
+                app.pix = res.pixelRatio;
+                app.windowHeight = res.windowHeight;
+                app.windowwidth = res.windowWidth;
+                app.sysWidth = res.windowWidth;
+                app.Bheight = res.screenHeight - res.windowHeight - res.statusBarHeight - 44;
+            }
+        });
     },
 
     // 分享
@@ -141,6 +179,25 @@ Page({
         }
         LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
             console.log("???????")
+        })
+    },
+
+    //存储查看人的信息
+    orderCall: function (e) {
+        console.log("orderCall", e);
+        app.orderCallFlag = false;
+        if (this.posterUid == wx.getStorageSync('u_id')) {
+            return;
+        };
+        let _this = this;
+        let storageLookUserInfoUrl = LoginFunc.domin2 + 'look';
+        let data = {
+            'newimgid': this.posterImgId == undefined ? "1553842506444" : this.posterImgId,
+            'uid': this.posterUid == "undefined" ? "5c9ad87190cf1" : this.posterUid,
+            "seeopenid": wx.getStorageSync('user_openID'),
+        }
+        LoginFunc.wxRequest(app, storageLookUserInfoUrl, "POST", data, function (res) {
+            console.log(res, "存储查看人的信息");
         })
     },
 

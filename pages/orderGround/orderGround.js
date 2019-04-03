@@ -65,7 +65,7 @@ Page({
                 }
             })
         };
-        if (options) {//记得改条件
+        if (options && options.scene) {//记得改条件
             console.log('SCENE', options);
             let scene = decodeURIComponent(options.scene);
             this.posterUid = scene.split('&')[0];
@@ -76,6 +76,15 @@ Page({
             app.orderCall = this.orderCall;
             this.getStoreInfo();
         };
+        if (options && options.uid){
+            this.posterUid = options.uid;
+            this.posterImgId = options.posterImgId;
+            if (wx.getStorageSync('user_openID') && !app.orderCallFlag) {
+                this.orderCall("34");
+            };
+            app.orderCall = this.orderCall;
+            this.getStoreInfo();
+        }
     },
 
     onShow: function() {

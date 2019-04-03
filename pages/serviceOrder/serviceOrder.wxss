@@ -1,5 +1,5 @@
 #botScroll {
-    background-color: #f6f6f8;
+    background-color: #f2f2f2;
 }
 
 .publicView {
@@ -71,7 +71,7 @@
 .serviceTxt {
     color: #1c1c1c;
     font-size: 36rpx;
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-top: 36rpx;
 }
 
@@ -86,11 +86,11 @@
 }
 
 .serviceItem {
-    width: 210rpx;
-    height: 88rpx;
-    border-radius: 20rpx;
+    width: 206rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
     text-align: center;
-    line-height: 88rpx;
+    line-height: 64rpx;
     font-size: 32rpx;
     margin-bottom: 16rpx;
     margin-right: 20rpx;
@@ -220,7 +220,7 @@
 
 .orderBtnView {
     width: 100%;
-    height: 240rpx;
+    height: 200rpx;
     position: relative;
 }
 
@@ -318,6 +318,7 @@
 
 .botTimeBoxOrder {
     background: rgba(255, 255, 255, 1);
+    color: black;
 }
 
 .botTimeBoxNoOrder {

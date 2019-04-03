@@ -33,10 +33,6 @@
             <!-- 店主推荐 -->
             <view class='topStoreInfoView flex pubilceView'>
 
-                <view class='orderDeails' catchtap='orderDeails'>
-                    <image src='/assets/picture/checkIcon.png' />
-                </view>
-
                 <view class='topStoreTxt'>
                     <view style='font-size:40rpx;font-weight:bold;'>
                         店主热荐
@@ -74,6 +70,10 @@
 
         </scroll-view>
 
+    </view>
+
+    <view class='orderDeails' catchtap='orderDeails'>
+        <image src='/assets/picture/myorder.png' />
     </view>
 
     <!-- 店铺详情弹窗 -->

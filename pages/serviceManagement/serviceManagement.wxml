@@ -31,7 +31,7 @@
 
             <!-- 添加按钮 -->
             <view class='upBtnView flex' style='justify-content: center;' bindtap='addDesigner'>
-                <view class='upBtn'> + 添加 </view>
+                <view class='upBtn'> + 添加设计师 </view>
             </view>
 
             <!-- 服务信息文字 -->

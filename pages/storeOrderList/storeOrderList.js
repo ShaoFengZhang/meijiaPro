@@ -5,6 +5,7 @@ Page({
 
     data: {
         topBarStatus: [1, 0, 0, 0],
+        ifShowGoHome:1,
     },
 
     onLoad: function(options) {
@@ -14,12 +15,19 @@ Page({
             this.uid = options.uid;
         };
 
+        if (options && options.ifShowGoHome){
+            this.setData({
+                ifShowGoHome:0, 
+            })
+        }
+
         this.urlPage = 1;
         this.rows = 6;
         this.cangetData = true;
         this.setData({
             myorderArr: [],
             ifShowView: 0,
+            yiguoqi: 0,
         });
         this.getTodyDataFun();
     },
@@ -60,12 +68,24 @@ Page({
             ifShowView: 0,
         });
         if (index == 0) {
+            this.setData({
+                yiguoqi: 0,
+            })
             this.getTodyDataFun();
         } else if (index == 1) {
+            this.setData({
+                yiguoqi: 0,
+            })
             this.getTomorrowDataFun(this.formatTime(this.data.timeStemp,1));
         } else if (index == 2) {
+            this.setData({
+                yiguoqi: 0,
+            })
             this.getTomorrowDataFun(this.formatTime(this.data.timeStemp, 2));
         } else if (index == 3) {
+            this.setData({
+                yiguoqi:1,
+            })
             this.getGuoQiDataFun();
         }
     },
@@ -94,7 +114,7 @@ Page({
                     ifShowView: 1,
                     timeStemp: res.time*1000,
                 });
-                if ((res.shoporder.length % _this.rows) != 0 || (res.shoporder.length / _this.rows) <= 0) {
+                if (res.shoporder.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }else{
@@ -122,7 +142,7 @@ Page({
                     myorderArr: _this.data.myorderArr.concat(res.shoporder),
                     ifShowView: 1,
                 });
-                if ((res.shoporder.length % _this.rows) != 0 || (res.shoporder.length / _this.rows) <= 0) {
+                if (res.shoporder.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }else{
@@ -149,7 +169,7 @@ Page({
                     myorderArr: _this.data.myorderArr.concat(res.shoporder),
                     ifShowView: 1,
                 });
-                if ((res.shoporder.length % _this.rows) != 0 || (res.shoporder.length / _this.rows) <= 0) {
+                if (res.shoporder.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }else{
@@ -162,21 +182,37 @@ Page({
 
     // 下拉刷新
     bindscrolltolower: function() {
+        console.log(this.cangetData)
         if (this.cangetData) {
             this.urlPage++;
             console.log("this.urlPage++", this.urlPage);
-            this.getDataFun();
+            for (let i = 0; i < this.data.topBarStatus.length; i++) {
+                if (this.data.topBarStatus[i]==1){
+                    var lowerIndex=i;
+                }
+            };
+            if (lowerIndex == 0) {
+                this.getTodyDataFun();
+            } else if (lowerIndex == 1) {
+                this.getTomorrowDataFun(this.formatTime(this.data.timeStemp, 1));
+            } else if (lowerIndex == 2) {
+                this.getTomorrowDataFun(this.formatTime(this.data.timeStemp, 2));
+            } else if (lowerIndex == 3) {
+                this.getGuoQiDataFun();
+            }
         }
     },
 
     // 处理时间
     formatTime: function(data,a) {
         let date = new Date(data);
+        console.log(data)
         date.setDate(date.getDate() + a);
         let year = date.getFullYear();
         let mon = date.getMonth() + 1;
         let hou = date.getDate();
         let time = year+"-"+(mon > 9 ? mon : `0${mon}`) + "-" + (hou > 9 ? hou : `0${hou}`);
+       
         return time;
     },
 

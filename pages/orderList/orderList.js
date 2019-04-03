@@ -62,7 +62,7 @@ Page({
                     ifShowView: 1,
                 });
                 
-                if ((res.order.length % _this.rows) != 0 || (res.order.length / _this.rows) <= 0) {
+                if (res.order.length < _this.rows) {
                     _this.cangetData = false;
                 }
             }

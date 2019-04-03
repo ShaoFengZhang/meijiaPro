@@ -32,7 +32,7 @@
 }
 
 .userName {
-    width: 320rpx;
+    width: 230rpx;
     height: 142rpx;
     line-height: 140rpx;
     font-size: 30rpx;
@@ -42,8 +42,16 @@
     white-space: nowrap;
 }
 
+.userOrder {
+    width: 70rpx;
+    color: #262628;
+    font-size: 32rpx;
+    text-align: center;
+    margin-right: 10rpx;
+}
+
 .checkDetails {
-    width:300rpx;
+    width: 300rpx;
     height: 70rpx;
     box-sizing: border-box;
     display: flex;
@@ -58,18 +66,18 @@
     text-align: right;
 }
 
-.line{
+.line {
     width: 718rpx;
     height: 2rpx;
     position: absolute;
     right: 0;
     bottom: 0;
-    background: #EFEFEF;
+    background: #efefef;
 }
 
-.noMyTempList{
+.noMyTempList {
     width: 100%;
     text-align: center;
-    color: #888888;
+    color: #888;
     font-size: 28rpx;
 }

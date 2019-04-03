@@ -26,8 +26,8 @@
             <view class='userInfo'>
 
                 <view class='userIcon'>
-                    <image src='/assets/picture/logo.png' wx:if="{{!item.icon}}" />
-                    <image src='{{item.icon}}' wx:if="{{item.icon}}" />
+                    <image src='/assets/picture/logo.png' wx:if="{{!item.usericon}}" />
+                    <image src='{{item.usericon}}' wx:if="{{item.usericon}}" />
                 </view>
 
                 <view class='username'>
@@ -39,9 +39,9 @@
 
                 <view class='orderStatus'>
                     <image src='/assets/picture/biao.png' />
-                    <!-- <view style='color:#999;font-size:32rpx;'>已完成</view> -->
-                    <view style='color:#FF5577;font-size:32rpx;' wx:if="{{item.status}}">已预约</view>
-                    <view style='color:#999;font-size:32rpx;' wx:if="{{!item.status}}">已取消</view>
+                    <view style='color:#999;font-size:32rpx;'wx:if="{{yiguoqi}}">已过期</view>
+                    <view style='color:#FF5577;font-size:32rpx;' wx:if="{{item.status!=0 &&!yiguoqi}}">已预约</view>
+                    <view style='color:#999;font-size:32rpx;' wx:if="{{item.status==0 &&!yiguoqi}}">已取消</view>
                 </view>
             </view>
 
@@ -81,7 +81,7 @@
 
     </scroll-view>
 
-    <view class='goHome' catchtap='goHome'>
+    <view class='goHome' catchtap='goHome' wx:if="{{ifShowGoHome}}">
         <image src='/assets/picture/logo.png' />
         <view style='color:000;font-size:20rpx;'>回到首页</view>
     </view>
