@@ -89,17 +89,16 @@ Page({
             this.posterUid = scene.split('&')[0];
             this.posterImgId = scene.split('&')[1];
             if (wx.getStorageSync('user_openID') && !app.orderCallFlag) {
-                this.orderCall("34");
+                this.orderCall("其他");
             };
             app.orderCall = this.orderCall;
-            this.getStoreInfo();
         };
 
         if (options && options.uid) {
             this.posterUid = options.uid;
             this.posterImgId = options.posterImgId;
             if (wx.getStorageSync('user_openID') && !app.orderCallFlag) {
-                this.orderCall("34");
+                this.orderCall("其他");
             };
             app.orderCall = this.orderCall;
         }

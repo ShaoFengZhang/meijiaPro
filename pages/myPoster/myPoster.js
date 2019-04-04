@@ -60,11 +60,11 @@ Page({
             var navUrl = `/pages/storeOrderList/storeOrderList?ifShowGoHome = 123`
 
         } else if (this.data.imgType == 2) {
-
+            var navUrl = `/pages/userCheck/userCheck?imgId=${id}&num=${num}`
         } else if (this.data.imgType == 3) {
-
+            var navUrl = `/pages/userCheck/userCheck?imgId=${id}&num=${num}`
         } else if (this.data.imgType == 4) {
-
+            var navUrl = `/pages/userCheck/userCheck?imgId=${id}&num=${num}`
         } else if (this.data.imgType == 5) {
             var navUrl = `/pages/userCheck/userCheck?imgId=${id}&num=${num}`
         }
