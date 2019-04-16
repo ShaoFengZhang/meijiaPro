@@ -73,7 +73,7 @@
                 </view>
 
                 <view class='dayOffList flex' style='justify-content:start;'>
-                    <view class='dayOffItem {{item.flag? "selectDay":"noSelectDay"}}' wx:for="{{serviceProject}}" wx:key="index" data-index='{{index}}' bindtap='srverItemClick'>
+                    <view class='dayOffItem {{item.flag==1? "selectDay":"noSelectDay"}}' wx:for="{{fuwutype}}" wx:key="index" data-index='{{index}}' bindtap='srverItemClick'>
                         <text>{{item.txt}}</text>
                     </view>
                 </view>

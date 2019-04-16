@@ -313,6 +313,13 @@ Page({
                 postUid: options.postUid,
 
             });
+            for (let i = 0; i < this.data.storeInfo.length; i++){
+                if (this.data.storeInfo[i].type==1){
+                    this.setData({
+                        storeUserIcon: this.data.storeInfo[i].headimg,
+                    })
+                }
+            };
             // 处理服务项目
             let serviceList = JSON.parse(this.data.storeInfo[0].worktype);
             for (let i = 0; i < serviceList.length; i++) {

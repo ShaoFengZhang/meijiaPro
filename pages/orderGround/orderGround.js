@@ -65,7 +65,8 @@ Page({
                 }
             })
         };
-        if (options && options.scene) {//记得改条件
+        if (options && options.scene) {
+        // if (options) {
             console.log('SCENE', options);
             let scene = decodeURIComponent(options.scene);
             this.posterUid = scene.split('&')[0];

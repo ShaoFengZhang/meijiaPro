@@ -8,7 +8,7 @@
             <view class='topUserInfo publicView flex' style='justify-content: start;'>
 
                 <view class='userIcon'>
-                    <image src='{{storeInfo[0].headimg}}' style='width:96rpx;height:96rpx;' />
+                    <image src='{{storeUserIcon}}' style='width:96rpx;height:96rpx;' />
                 </view>
 
                 <view class='storeName'>

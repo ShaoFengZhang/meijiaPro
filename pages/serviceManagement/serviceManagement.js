@@ -10,7 +10,7 @@ Page({
             [
 
                 // '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30', '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30',
-                 '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00',
+                '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00',
                 //   '22:30', '23:00', '23:30', '24:00'
             ],
 
@@ -75,6 +75,30 @@ Page({
             },
             {
                 "txt": "手部护理",
+                "flag": 0,
+            },
+            {
+                "txt": "美容",
+                "flag": 0,
+            },
+            {
+                "txt": "脱毛",
+                "flag": 0,
+            },
+            {
+                "txt": "纹绣",
+                "flag": 0,
+            },
+            {
+                "txt": "科技美肤",
+                "flag": 0,
+            },
+            {
+                "txt": "皮肤管理",
+                "flag": 0,
+            },
+            {
+                "txt": "手脚护理",
                 "flag": 0,
             },
         ],
@@ -171,10 +195,11 @@ Page({
 
     // 服务项目点击事件
     srverItemClick: function(e) {
+        console.log(e)
         let index = e.currentTarget.dataset.index;
-        this.data.serviceProject[index].flag = !this.data.serviceProject[index].flag;
+        this.data.fuwutype[index].flag = !this.data.fuwutype[index].flag;
         this.setData({
-            serviceProject: this.data.serviceProject,
+            fuwutype: this.data.fuwutype,
         })
     },
 
@@ -195,14 +220,14 @@ Page({
                 "openid": wx.getStorageSync('user_openID'),
                 "name": this.data.designerArr[i].name,
                 "headimg": this.data.designerArr[i].icon,
-                "type": this.data.designerArr[i].type == 1 ? 1 :parseInt(this.data.designerArr[i].type) + 1,
+                "type": this.data.designerArr[i].type == 1 ? 1 : parseInt(this.data.designerArr[i].type) + 1,
                 "id": this.data.designerArr[i].id,
             };
             designerUpArr.push(obj);
         }
 
         // 校验工作时间
-        if (parseInt(this.startTime) >= parseInt(this.endTime)){
+        if (parseInt(this.startTime) >= parseInt(this.endTime)) {
             util.showToastFun("请选择合理的工作时间");
             return;
         }
@@ -221,12 +246,12 @@ Page({
 
         // 校验服务项目
         let serviceItemFlag = 0;
-        for (let i = 0; i < this.data.serviceProject.length; i++) {
-            if (!this.data.serviceProject[i].flag) {
+        for (let i = 0; i < this.data.fuwutype.length; i++) {
+            if (!this.data.fuwutype[i].flag) {
                 serviceItemFlag++
             }
         };
-        if (serviceItemFlag >= this.data.serviceProject.length) {
+        if (serviceItemFlag >= this.data.fuwutype.length) {
             util.showToastFun("请完善服务项目信息");
             return;
         };
@@ -237,7 +262,7 @@ Page({
             "start": this.startTime,
             "end": this.endTime,
             "rest": JSON.stringify(this.data.dayArr),
-            "worktype": JSON.stringify(this.data.serviceProject),
+            "worktype": JSON.stringify(this.data.fuwutype),
             "designer": JSON.stringify(designerUpArr),
         };
         LoginFunc.wxRequest(app, saveInfoUrl, "POST", data, function(res) {
@@ -275,22 +300,47 @@ Page({
                         type: res.manager[i].type,
                         id: res.manager[i].id,
                     };
-                    if (res.manager[i].type==1){
+                    if (res.manager[i].type == 1) {
                         _this.data.designerArr.unshift(obj);
-                    }else{
+                    } else {
                         _this.data.designerArr.push(obj);
                     }
-                    
+
                 };
 
                 // 上下班时间
                 _this.startTime = res.fuwuinfo.start ? res.fuwuinfo.start : "8:00";
                 _this.endTime = res.fuwuinfo.end ? res.fuwuinfo.end : "17:00";
+                let fuwuDataArr=[];
+                if (res.fuwuinfo && res.fuwuinfo.worktype) {
+                    let worktype = JSON.parse(res.fuwuinfo.worktype);
+                    let fuwuArr = res.fuwutype;
+                    for (let j = 0; j < fuwuArr.length;j++ ){
+
+                        for (let n = 0; n < worktype.length; n++ ){
+                            if (fuwuArr[j].type == worktype[n].type){
+                                fuwuArr[j].flag = worktype[n].flag;
+                            }
+                        }
+                    }
+                    fuwuDataArr = fuwuArr;
+                }else{
+                    let fuwuArr = res.fuwutype;
+                    for (let j = 0; j < fuwuArr.length; j++) {
+
+                        fuwuArr[j].flag = parseInt(fuwuArr[j].flag);
+                                                    
+                    }
+                    fuwuDataArr = fuwuArr;
+                }
+
+
                 _this.setData({
                     designerArr: _this.data.designerArr,
                     defaultTimeTxt: _this.startTime + " 至 " + _this.endTime,
                     dayArr: res.fuwuinfo.rest ? JSON.parse(res.fuwuinfo.rest) : _this.data.dayArr,
-                    serviceProject: res.fuwuinfo.worktype ? JSON.parse(res.fuwuinfo.worktype) : _this.data.serviceProject,
+                    serviceProject: res.fuwuinfo.worktype ? JSON.parse(res.fuwuinfo.worktype) : [],
+                    fuwutype: fuwuDataArr
                 });
             }
         })
@@ -353,7 +403,7 @@ Page({
         });
     },
 
-    formSubmit: function (e) {
+    formSubmit: function(e) {
         console.log(1212121, e.detail.formId);
 
         let _this = this;
@@ -367,7 +417,7 @@ Page({
             formid: form_id,
             uid: wx.getStorageSync('u_id'),
         }
-        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function (res) {
+        LoginFunc.wxRequest(app, collectFormIdUrl, "POST", data, function(res) {
             console.log("???????")
         })
     },
